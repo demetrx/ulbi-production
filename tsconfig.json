@@ -8,7 +8,10 @@
     "allowJs": true,
     "moduleResolution": "Node",
     // absolute imports
-//    "baseUrl": ".",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
     // module.exports&require in packages (common js) => import&export (esModules)
     "esModuleInterop": true,
     // when no default exports: make modules imports simple (not import * as smth)
