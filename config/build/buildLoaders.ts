@@ -5,6 +5,20 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
   // order in final array matters
 
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack']
+  }
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  }
+
   // if vanilla js (not ts), we need babel-loader to process jsx
   const typescriptLoader = {
     test: /\.tsx?$/,
@@ -30,6 +44,8 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
   }
 
   return [
+    fileLoader,
+    svgLoader,
     typescriptLoader,
     cssLoader,
   ]
