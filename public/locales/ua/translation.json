@@ -1,9 +1,13 @@
 {
+  "": "",
   "About us": "",
-  "Language": "Українська",
+  "Language": "English",
   "Main Page": "",
   "Page not found": "Сторінку не знайдено",
+  "Reload page": "Перезавантажити сторінку",
   "Text translation": "Текстовий переклад",
   "Toggle": "Переключити",
-  "Translation": "Переклад"
+  "Translation": "Переклад",
+  "Unexpected error occurred": "Виникла непередбачувана помилка",
+  "throw error": "прокинути помилку"
 }
