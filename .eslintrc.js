@@ -35,7 +35,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_' }],
     'no-shadow': 'off',
     'import/extensions': 'off',
-    'import/no-extraneous-dependencies': 'warn',
+    'import/no-extraneous-dependencies': [1, { devDependencies: ['config/**'] }],
     'no-underscore-dangle': 'off',
     'i18next/no-literal-string': [2, { markupOnly: true }],
     'max-len': [2, { ignoreComments: true, code: 100 }],
