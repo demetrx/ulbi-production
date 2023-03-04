@@ -35,10 +35,15 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_' }],
     'no-shadow': 'off',
     'import/extensions': 'off',
-    'import/no-extraneous-dependencies': [1, { devDependencies: ['config/**'] }],
-    'no-underscore-dangle': 'off',
-    'i18next/no-literal-string': [2, { markupOnly: true }],
     'max-len': [2, { ignoreComments: true, code: 100 }],
+    'import/no-extraneous-dependencies': 'warn',
+    'no-underscore-dangle': 'off',
+    'i18next/no-literal-string': [2,
+      {
+        markupOnly: true,
+        ignoreAttribute: ['data-testid'],
+      },
+    ],
   },
   settings: {
     react: {
@@ -48,4 +53,18 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+    {
+      files: ['src/**/*.test.{ts,tsx}', 'config/**/*{ts,tsx}'],
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+      },
+    },
+  ],
 };
