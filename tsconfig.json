@@ -15,7 +15,8 @@
     // module.exports&require in packages (common js) => import&export (esModules)
     "esModuleInterop": true,
     // when no default exports: make modules imports simple (not import * as smth)
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strictBindCallApply": true
   },
   "ts-node": {
     "compilerOptions": {
@@ -23,6 +24,8 @@
     }
   },
   "include": [
-    "./config/jest/setupTests.ts"
+    "./config/jest/setupTests.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.ts"
   ]
 }

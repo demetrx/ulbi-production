@@ -5,6 +5,7 @@ describe('Button', () => {
   test('renders successfully', () => {
     render(<Button>test</Button>);
     expect(screen.getByText('test')).toBeInTheDocument();
+    screen.debug();
   });
 
   test('renders with right theme and class', () => {
