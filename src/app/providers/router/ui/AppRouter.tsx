@@ -7,6 +7,7 @@ const AppRouter = () => (
   <Suspense fallback={<PageLoader />}>
     <Routes>
       {Object.values(routeConfig).map((routeProps) => (
+        // eslint-disable-next-line react/jsx-props-no-spreading
         <Route key={routeProps.path} {...routeProps} />
       ))}
     </Routes>
