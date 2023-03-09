@@ -15,6 +15,7 @@
     "test:ui": "loki test",
     "test:ui:ok": "loki approve",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:reg-cli": "reg-cli ./.loki/current ./.loki/reference ./.loki/difference -R ./.loki/report.html",
     "analyze:prod": "npm run build:prod --env analyze=true",
     "storybook": "start-storybook -p 6006 -c config/storybook",
     "storybook:build": "build-storybook -c config/storybook"
@@ -62,6 +63,7 @@
     "jest": "^27.5.1",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "reg-cli": "^0.17.6",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",

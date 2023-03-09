@@ -11,7 +11,7 @@ export const PageLoader: FC<PageLoaderProps> = (props) => {
   const { className } = props;
 
   return (
-    <div className={classNames(cls.PageLoader, {}, [className])}>
+    <div className={classNames(cls.pageLoader, {}, [className])}>
       <Loader />
     </div>
   );

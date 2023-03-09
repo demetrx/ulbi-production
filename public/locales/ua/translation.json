@@ -1,7 +1,10 @@
 {
   "": "",
+  "About": "Про сайт",
   "About us": "",
   "Language": "English",
+  "Language short": "En",
+  "Main": "Головна",
   "Main Page": "",
   "Page not found": "Сторінку не знайдено",
   "Reload page": "Перезавантажити сторінку",
@@ -9,7 +12,5 @@
   "Toggle": "Переключити",
   "Translation": "Переклад",
   "Unexpected error occurred": "Виникла непередбачувана помилка",
-  "throw error": "прокинути помилку",
-  "Main": "Головна",
-  "About": "Про сайт"
+  "throw error": "прокинути помилку"
 }
