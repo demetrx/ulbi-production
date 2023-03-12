@@ -10,7 +10,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
     'react/jsx-filename-extension': [2, {
       extensions: ['.jsx', '.tsx'],
@@ -21,6 +21,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/function-component-definition': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [2, {
       argsIgnorePattern: '^_',
@@ -33,6 +35,9 @@ module.exports = {
     }],
     'import/no-extraneous-dependencies': 'warn',
     'no-underscore-dangle': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'react/self-closing-comp': 'off',
     'i18next/no-literal-string': [2, {
       markupOnly: true,
       ignoreAttribute: ['data-testid', 'to'],
@@ -49,9 +54,10 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts,tsx}'],
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       rules: {
         'i18next/no-literal-string': 'off',
+        'max-len': 'off',
       },
     },
     {

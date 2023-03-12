@@ -1,0 +1,43 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #e8e8ea;
+  transition: transform 0.3s;
+  transform: scale(0.5);
+  max-width: 60%;
+  color: #0232c2;
+
+  &.dark {
+    color: #04ff04;
+    background-color: #090949;
+  }
+}
+
+.opened {
+  pointer-events: auto;
+  opacity: 1;
+  z-index: var(--modal-z-index);
+  visibility: visible;
+
+  .content {
+    transform: scale(1);
+  }
+}
