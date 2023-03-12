@@ -27,7 +27,7 @@ export const NavBar: FC<NavBarProps> = (props) => {
       </Button>
       <Modal isOpen={isAuthModalOpened} onClose={() => setIsAuthModalOpened(false)}>
         {/* eslint-disable-next-line i18next/no-literal-string */}
-        {/* eslint-disable-next-line i18next/no-literal-string */}
+        {/* eslint-disable-next-line i18next/no-literal-string,max-len */}
         Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
       </Modal>
     </div>
