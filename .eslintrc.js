@@ -12,7 +12,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
-    'react/jsx-filename-extension': [2, {
+    'react/jsx-filename-extension': ['error', {
       extensions: ['.jsx', '.tsx'],
     }],
     'import/no-unresolved': 'off',
@@ -24,12 +24,12 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': [2, {
+    '@typescript-eslint/no-unused-vars': ['error', {
       argsIgnorePattern: '^_',
     }],
     'no-shadow': 'off',
     'import/extensions': 'off',
-    'max-len': [2, {
+    'max-len': ['error', {
       ignoreComments: true,
       code: 100,
     }],
@@ -53,6 +53,12 @@ module.exports = {
     __IS_DEV__: true,
   },
   overrides: [
+    {
+      files: ['src/**/*Slice.ts'],
+      rules: {
+        'no-param-reassign': ['error', { props: false }],
+      },
+    },
     {
       files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       rules: {

@@ -6,7 +6,7 @@ import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/router/routeConfig';
 import MainIcon from 'shared/assets/icons/main.svg';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import cls from './Sidebar.module.scss';
