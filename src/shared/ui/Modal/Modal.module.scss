@@ -19,16 +19,11 @@
 .content {
   padding: 20px;
   border-radius: 12px;
-  background-color: #e8e8ea;
+  background-color: var(--bg-color);
   transition: transform 0.3s;
   transform: scale(0.5);
   max-width: 60%;
-  color: #0232c2;
-
-  &.dark {
-    color: #04ff04;
-    background-color: #090949;
-  }
+  color: var(--primary-color);
 }
 
 .opened {
