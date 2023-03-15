@@ -1,5 +1,5 @@
 import {
-  FC, MouseEventHandler, ReactNode, useCallback, useEffect,
+  FC, MouseEventHandler, ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
@@ -11,14 +11,22 @@ interface ModalProps {
   children: ReactNode;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean
 }
 
 export const Modal: FC<ModalProps> = (props) => {
   const {
-    className, children, isOpen, onClose,
+    className, children, isOpen, onClose, lazy,
   } = props;
 
+  const [isMounted, setIsMounted] = useState(false);
   const { theme } = useTheme();
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
 
   const handleClose = useCallback(() => {
     if (onClose) {
@@ -45,6 +53,10 @@ export const Modal: FC<ModalProps> = (props) => {
   const handleContentClick: MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

@@ -1,8 +1,8 @@
 import { FC, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Modal } from 'shared/ui/Modal/Modal';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -16,20 +16,19 @@ export const NavBar: FC<NavBarProps> = (props) => {
 
   const { t } = useTranslation();
 
-  const handleToggleModal = () => {
-    setIsAuthModalOpened((prevState) => !prevState);
+  const handleOpenModal = () => {
+    setIsAuthModalOpened(true);
+  };
+  const handleCloseModal = () => {
+    setIsAuthModalOpened(false);
   };
 
   return (
     <div className={classNames(cls.navBar, {}, [className])}>
-      <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={handleToggleModal}>
+      <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={handleOpenModal}>
         {t('Log In')}
       </Button>
-      <Modal isOpen={isAuthModalOpened} onClose={() => setIsAuthModalOpened(false)}>
-        {/* eslint-disable-next-line i18next/no-literal-string */}
-        {/* eslint-disable-next-line i18next/no-literal-string,max-len */}
-        Lorem ipsum dolor Lorem ipsum dolorLorem ipsum dolorLorem ipsum dolorLorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor
-      </Modal>
+      <LoginModal isOpen={isAuthModalOpened} onClose={handleCloseModal} />
     </div>
   );
 };
