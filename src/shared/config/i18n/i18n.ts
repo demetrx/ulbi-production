@@ -20,3 +20,5 @@ i18n
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
   });
+
+export { i18n };
