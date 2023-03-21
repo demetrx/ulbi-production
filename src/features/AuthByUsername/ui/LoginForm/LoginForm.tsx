@@ -5,21 +5,34 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+import {
+  ReducersMap,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { withAsyncReducers } from 'shared/lib/hocs/withAsyncReducers/withAsyncReducers';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = memo((props: LoginFormProps) => {
+// Move out of C to avoid re-renders
+const initialReducers: ReducersMap = {
+  loginForm: loginReducer,
+};
+
+const LoginForm = memo((props: LoginFormProps) => {
   const { className } = props;
   const dispatch = useDispatch();
-  const {
-    username, password, isLoading, error,
-  } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const handleChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -36,6 +49,7 @@ export const LoginForm = memo((props: LoginFormProps) => {
   const { t } = useTranslation();
 
   return (
+  // <DynamicModuleLoader reducers={initialReducers}>
     <div className={classNames(cls.loginForm, {}, [className])}>
       <Text title={t('Authorization form')} />
       {error && <Text theme={TextTheme.Error} text={t(error)} />}
@@ -60,5 +74,8 @@ export const LoginForm = memo((props: LoginFormProps) => {
         {t('Log In')}
       </Button>
     </div>
+  // </DynamicModuleLoader>
   );
 });
+
+export default withAsyncReducers(LoginForm, { reducers: initialReducers });
