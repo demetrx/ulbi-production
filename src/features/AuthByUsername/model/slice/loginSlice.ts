@@ -8,6 +8,8 @@ const initialState: LoginSchema = {
   isLoading: false,
 };
 
+// Reducer = (state, action) => newState
+
 const loginSlice = createSlice({
   name: 'login',
   initialState,
