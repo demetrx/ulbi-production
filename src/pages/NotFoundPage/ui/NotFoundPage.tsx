@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './NotFoundPage.module.scss';
 
-export const NotFoundPage: FC = () => {
+export const NotFoundPage = memo(() => {
   const { t } = useTranslation();
 
   return (
@@ -11,4 +11,4 @@ export const NotFoundPage: FC = () => {
       {t('Page not found')}
     </div>
   );
-};
+});

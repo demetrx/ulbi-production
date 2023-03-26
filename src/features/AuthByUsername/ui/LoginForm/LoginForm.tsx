@@ -3,12 +3,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import {
-  ReducersMap,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { withAsyncReducers } from 'shared/lib/hocs/withAsyncReducers/withAsyncReducers';
+import { withAsyncReducers, ReducersMap } from 'shared/lib/hocs';
+import { useAppDispatch } from 'shared/lib/hooks';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -28,7 +26,7 @@ const initialReducers: ReducersMap = {
 
 const LoginForm = memo((props: LoginFormProps) => {
   const { className } = props;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
