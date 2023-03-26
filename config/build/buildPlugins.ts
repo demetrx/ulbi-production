@@ -6,7 +6,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(config: BuildOptions): webpack.WebpackPluginInstance[] {
-  const { paths, isDev, analyze } = config;
+  const {
+    paths, isDev, analyze, apiURL,
+  } = config;
 
   const plugins = [
     new HTMLWebpackPlugin({
@@ -19,6 +21,7 @@ export function buildPlugins(config: BuildOptions): webpack.WebpackPluginInstanc
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
+      __API_URL__: JSON.stringify(apiURL),
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
