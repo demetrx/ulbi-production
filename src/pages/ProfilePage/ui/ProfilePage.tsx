@@ -1,7 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ReducersMap, withAsyncReducers } from 'shared/lib/hocs';
-import { profileReducer } from 'entities/Profile';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
+import { useAppDispatch } from 'shared/lib/hooks';
 
 const reducers: ReducersMap = {
   profile: profileReducer,
@@ -9,10 +10,15 @@ const reducers: ReducersMap = {
 
 const ProfilePage = memo(() => {
   const { t } = useTranslation('profile');
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProfileData());
+  }, [dispatch]);
 
   return (
     <div>
-      {t('Profile Page')}
+      <ProfileCard />
     </div>
   );
 });
