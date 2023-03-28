@@ -1,24 +1,17 @@
-import axios from 'axios';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
-
-jest.mock('axios');
-
-// For TS only, they exist there
-// mocking not only module, but internal methods too (e.g. post)
-const mockedAxios = jest.mocked(axios, true);
 
 // createAsyncThunk = (arg) => actionCreator (dispatch, getState, {rejectValue}) => action
 describe('loginByUsername.test', () => {
   test('fulfils successfully', async () => {
     const userValue = { username: 'admin', id: '1' };
-    mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
 
     const thunk = new TestAsyncThunk(loginByUsername);
+    thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
     const action = await thunk.callThunk({ username: 'admin', password: '123' });
 
-    expect(mockedAxios.post).toHaveBeenCalled();
+    expect(thunk.api.post).toHaveBeenCalled();
     expect(action.meta.requestStatus).toBe('fulfilled');
     expect(thunk.dispatch).toHaveBeenCalledTimes(3);
     expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
@@ -26,9 +19,8 @@ describe('loginByUsername.test', () => {
   });
 
   test('rejects with error', async () => {
-    mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-
     const thunk = new TestAsyncThunk(loginByUsername);
+    thunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }));
     const action = await thunk.callThunk({ username: 'admin', password: '123' });
 
     expect(action.meta.requestStatus).toBe('rejected');

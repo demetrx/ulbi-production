@@ -1,5 +1,4 @@
 import React, { memo, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { ReducersMap, withAsyncReducers } from 'shared/lib/hocs';
 import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks';
@@ -9,7 +8,6 @@ const reducers: ReducersMap = {
 };
 
 const ProfilePage = memo(() => {
-  const { t } = useTranslation('profile');
   const dispatch = useAppDispatch();
 
   useEffect(() => {

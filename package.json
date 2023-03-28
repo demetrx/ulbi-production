@@ -97,6 +97,7 @@
   "author": "demetrx <demetrxx@gmail.com>",
   "license": "ISC",
   "loki": {
+    "fetchFailIgnore": ".*",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",

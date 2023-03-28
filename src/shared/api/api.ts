@@ -5,6 +5,6 @@ const baseURL = __API_URL__;
 export const $api = axios.create({
   baseURL,
   headers: {
-    authorization: localStorage.getItem(USER_LS_KEY) || false,
+    authorization: localStorage.getItem(USER_LS_KEY) || '',
   },
 });

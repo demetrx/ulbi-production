@@ -6,8 +6,8 @@ import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+// import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+// import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -17,8 +17,8 @@ interface ProfileCardProps {
 export const ProfileCard = memo((props: ProfileCardProps) => {
   const { className } = props;
   const data = useSelector(getProfileData);
-  const isLoading = useSelector(getProfileIsLoading);
-  const error = useSelector(getProfileError);
+  // const isLoading = useSelector(getProfileIsLoading);
+  // const error = useSelector(getProfileError);
 
   const { t } = useTranslation('profile');
 
