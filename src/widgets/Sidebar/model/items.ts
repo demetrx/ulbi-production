@@ -8,6 +8,7 @@ export interface SidebarItemType {
   path: string;
   text: string
   Icon: VFC<SVGProps<SVGSVGElement>>
+  authOnly?: boolean
 }
 
 export const sidebarItemsList :SidebarItemType[] = [
@@ -25,5 +26,6 @@ export const sidebarItemsList :SidebarItemType[] = [
     path: RoutePath.profile,
     Icon: ProfileIcon,
     text: 'Profile',
+    authOnly: true,
   },
 ];
