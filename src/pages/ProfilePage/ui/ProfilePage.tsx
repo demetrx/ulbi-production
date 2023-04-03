@@ -2,15 +2,21 @@ import React, { memo, useCallback, useEffect } from 'react';
 import { ReducersMap, withAsyncReducers } from 'shared/lib/hocs';
 import {
   fetchProfileData,
-  ProfileCard,
-  profileReducer,
+  getProfileError,
+  getProfileForm,
   getProfileIsLoading,
-  getProfileError, profileActions, getProfileReadOnly, getProfileForm,
+  getProfileReadOnly,
+  getProfileValidationErrors,
+  profileActions,
+  ProfileCard,
+  profileReducer, ValidateProfileError,
 } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersMap = {
@@ -19,11 +25,21 @@ const reducers: ReducersMap = {
 
 const ProfilePage = memo(() => {
   const dispatch = useAppDispatch();
+  const { t } = useTranslation('profile');
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
   const readOnly = useSelector(getProfileReadOnly);
+  const validationErrors = useSelector(getProfileValidationErrors);
+
+  const validationErrorTranslations = {
+    [ValidateProfileError.SERVER_ERROR]: t('Server error'),
+    [ValidateProfileError.WRONG_COUNTRY]: t('Incorrect country'),
+    [ValidateProfileError.WRONG_AGE]: t('Incorrect age'),
+    [ValidateProfileError.WRONG_USER_DATA]: t('First and last name are required'),
+    [ValidateProfileError.NO_DATA]: t('No data provided'),
+  };
 
   useEffect(() => {
     dispatch(fetchProfileData());
@@ -63,6 +79,9 @@ const ProfilePage = memo(() => {
 
   return (
     <div>
+      {validationErrors?.length && validationErrors.map((err) => (
+        <Text key={err} theme={TextTheme.Error} text={validationErrorTranslations[err]} />
+      ))}
       <ProfilePageHeader />
       <ProfileCard
         readonly={readOnly}

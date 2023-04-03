@@ -53,6 +53,7 @@ module.exports = {
     __IS_DEV__: true,
     __API_URL__: true,
     DeepPartial: true,
+    __PROJECT__: true,
   },
   overrides: [
     {

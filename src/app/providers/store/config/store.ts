@@ -1,7 +1,7 @@
 // Config may be here, near provider itself, or in the shared layer
 
 import {
-  CombinedState, configureStore, Reducer, ReducersMapObject,
+  CombinedState, configureStore, Middleware, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
@@ -9,6 +9,14 @@ import { createReducerManager } from 'app/providers/store/config/reducerManager'
 import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router-dom';
 import { StateSchema } from './StateSchema';
+
+const interceptorMiddleware: Middleware<{}, StateSchema> = () => (next) => (action) => {
+  if (__PROJECT__ === 'storybook' && action.type?.includes('fetch')) {
+    return undefined;
+  }
+
+  return next(action);
+};
 
 // Create store in a function to reuse it for tests and storybook
 export function createReduxStore(
@@ -28,14 +36,20 @@ export function createReduxStore(
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument: {
-          api: $api,
-          navigate,
+    middleware: (getDefaultMiddleware) => {
+      const defaultMiddleware = getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+            navigate,
+          },
         },
-      },
-    }),
+      });
+
+      // return defaultMiddleware;
+
+      return [interceptorMiddleware, ...defaultMiddleware] as typeof defaultMiddleware;
+    },
   });
 
   // @ts-ignore

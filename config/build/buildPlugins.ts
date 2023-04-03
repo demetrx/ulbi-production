@@ -7,7 +7,7 @@ import { BuildOptions } from './types/config';
 
 export function buildPlugins(config: BuildOptions): webpack.WebpackPluginInstance[] {
   const {
-    paths, isDev, analyze, apiURL,
+    paths, isDev, analyze, apiURL, project,
   } = config;
 
   const plugins = [
@@ -22,6 +22,7 @@ export function buildPlugins(config: BuildOptions): webpack.WebpackPluginInstanc
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API_URL__: JSON.stringify(apiURL),
+      __PROJECT__: JSON.stringify(project),
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: false,
