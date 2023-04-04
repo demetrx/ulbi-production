@@ -3,7 +3,9 @@ import { UserType } from 'entities/User';
 import { USER_LS_KEY } from 'shared/consts/localStorage';
 import type { UserSchema } from '../types/UserSchema';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+  _initialized: false,
+};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -17,6 +19,7 @@ export const userSlice = createSlice({
       if (user) {
         state.authData = JSON.parse(user);
       }
+      state._initialized = true;
     },
     logout: (state) => {
       const user = localStorage.getItem(USER_LS_KEY);
