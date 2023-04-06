@@ -46,8 +46,6 @@ export function createReduxStore(
         },
       });
 
-      // return defaultMiddleware;
-
       return [interceptorMiddleware, ...defaultMiddleware] as typeof defaultMiddleware;
     },
   });

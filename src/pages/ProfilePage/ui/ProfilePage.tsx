@@ -23,7 +23,7 @@ const reducers: ReducersMap = {
   profile: profileReducer,
 };
 
-const ProfilePage = memo(() => {
+const ProfilePage = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
 
@@ -99,5 +99,5 @@ const ProfilePage = memo(() => {
       />
     </div>
   );
-});
+};
 export default withAsyncReducers(ProfilePage, { reducers });
