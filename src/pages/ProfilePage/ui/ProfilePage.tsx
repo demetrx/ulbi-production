@@ -100,4 +100,4 @@ const ProfilePage = () => {
     </div>
   );
 };
-export default withAsyncReducers(ProfilePage, { reducers });
+export default memo(withAsyncReducers(ProfilePage, { reducers }));
