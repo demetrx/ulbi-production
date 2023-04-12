@@ -12,6 +12,7 @@
   "Choose country": "",
   "Choose currency": "",
   "City": "",
+  "Comments": "Comments",
   "Edit": "",
   "Enter password": "Enter password",
   "Enter username": "Enter username",
@@ -29,6 +30,9 @@
   "Login": "",
   "Main": "Main",
   "Main Page": "",
+  "No comments yet": {
+    "": ""
+  },
   "No data": "No data",
   "No data provided": "No data provided",
   "Page not found": "Page not found",

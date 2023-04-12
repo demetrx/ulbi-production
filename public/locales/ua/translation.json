@@ -12,6 +12,7 @@
   "Choose country": "Choose country",
   "Choose currency": "Choose currency",
   "City": "City",
+  "Comments": "Comments",
   "Edit": "Edit",
   "Enter password": "Введіть пароль",
   "Enter username": "Введіть логін",
@@ -29,6 +30,9 @@
   "Login": "Login",
   "Main": "Головна",
   "Main Page": "",
+  "No comments yet": {
+    "": ""
+  },
   "No data": "No data",
   "No data provided": "No data provided",
   "Page not found": "Сторінку не знайдено",
