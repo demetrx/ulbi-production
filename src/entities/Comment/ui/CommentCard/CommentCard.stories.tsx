@@ -1,12 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from 'app/providers/theme';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { CommentCard } from './CommentCard';
 
 export default {
-  title: 'pages/CommentCard',
+  title: 'entities/Comment/CommentCard',
   component: CommentCard,
   argTypes: {},
 } as ComponentMeta<typeof CommentCard>;
@@ -14,6 +11,20 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
 export const Normal = Template.bind({});
+Normal.args = {
+  comment: {
+    id: '1',
+    user: { id: '1', username: 'Broski' },
+    text: 'Suppa comment 228',
+  },
+};
 
-export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const IsLoading = Template.bind({});
+IsLoading.args = {
+  comment: {
+    id: '1',
+    user: { id: '1', username: 'Broski' },
+    text: 'Suppa comment 228',
+  },
+  isLoading: true,
+};

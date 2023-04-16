@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
@@ -12,6 +12,8 @@ import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import {
   fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addArticleComment } from '../model/services/addArticleComment/addArticleComment';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
   articleDetailsCommentsReducer, getArticleComments,
@@ -29,6 +31,10 @@ const ArticleDetailsPage = () => {
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
 
+  const handleSendComment = useCallback((text: string) => {
+    dispatch(addArticleComment(text));
+  }, [dispatch]);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -42,6 +48,7 @@ const ArticleDetailsPage = () => {
       <div>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Comments')} />
+        <AddCommentForm onSendComment={handleSendComment} />
         <CommentList
           isLoading={commentsIsLoading}
           comments={comments}

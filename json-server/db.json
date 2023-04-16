@@ -97,6 +97,12 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "text": "My suppa comment",
+      "userId": "1",
+      "articleId": "1",
+      "id": "b0yvT50"
     }
   ],
   "users": [
@@ -108,19 +114,33 @@
     },
     {
       "id": "2",
-      "username": "bro",
+      "username": "user",
       "password": "123",
       "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg"
     }
   ],
-  "profile": {
-    "firstName": "Dmytro",
-    "lastName": "Bielousov",
-    "age": 20,
-    "currency": "EUR",
-    "country": "Ukraine",
-    "city": "Kyivvv",
-    "username": "admin",
-    "avatar": "https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Dmytrx",
+      "lastName": "Bielousov",
+      "age": 20,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Kyiv",
+      "username": "admin",
+      "avatar": "https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA"
+    },
+    {
+      "id": "2",
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 100,
+      "currency": "USD",
+      "country": "Poland",
+      "city": "Krakow",
+      "username": "user",
+      "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg"
+    }
+  ]
 }

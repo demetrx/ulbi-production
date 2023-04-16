@@ -12,6 +12,7 @@ const form = {
   country: Country.Ukraine,
   city: 'Kyiv',
   username: 'admin',
+  id: '1',
 };
 describe('updateProfileData.test', () => {
   test('fulfils successfully', async () => {

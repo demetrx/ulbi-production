@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { ReducersMap, withAsyncReducers } from 'shared/lib/hocs';
 import {
   fetchProfileData,
@@ -11,12 +11,13 @@ import {
   ProfileCard,
   profileReducer, ValidateProfileError,
 } from 'entities/Profile';
-import { useAppDispatch } from 'shared/lib/hooks';
+import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersMap = {
@@ -26,6 +27,7 @@ const reducers: ReducersMap = {
 const ProfilePage = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation('profile');
+  const { id } = useParams<{id: string}>();
 
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
@@ -41,9 +43,11 @@ const ProfilePage = () => {
     [ValidateProfileError.NO_DATA]: t('No data provided'),
   };
 
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  });
 
   const handleChangeFirstName = useCallback((value?: string) => {
     dispatch(profileActions.updateProfile({ firstName: value || '' }));
