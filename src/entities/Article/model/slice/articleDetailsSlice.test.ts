@@ -10,6 +10,11 @@ const article: Article = {
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '8.04.2023',
+  user: {
+    id: '1',
+    username: 'Super Mario',
+    avatar: 'https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg',
+  },
   category: [
     ArticleCategory.IT,
   ],

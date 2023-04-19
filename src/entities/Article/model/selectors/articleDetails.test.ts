@@ -14,6 +14,11 @@ describe('articleDetails.test', () => {
       category: [
         ArticleCategory.IT,
       ],
+      user: {
+        id: '1',
+        username: 'Super Mario',
+        avatar: 'https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg',
+      },
       blocks: [
         {
           id: '1',

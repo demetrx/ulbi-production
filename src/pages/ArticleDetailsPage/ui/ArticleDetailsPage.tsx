@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { CommentList } from 'entities/Comment';
@@ -9,10 +9,12 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { Button } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/router/routeConfig';
 import {
   fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { AddCommentForm } from 'features/AddCommentForm';
+} from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addArticleComment } from '../model/services/addArticleComment/addArticleComment';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
@@ -27,6 +29,7 @@ const reducers: ReducersMap = {
 const ArticleDetailsPage = () => {
   const { id } = useParams<{id: string}>();
   const { t } = useTranslation('articles');
+  const navigate = useNavigate();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
@@ -39,6 +42,10 @@ const ArticleDetailsPage = () => {
     dispatch(fetchCommentsByArticleId(id));
   });
 
+  const handleBackToList = useCallback(() => {
+    navigate(RoutePath.articles);
+  }, [navigate]);
+
   if (!id) {
     return <Text title={t('Article not found!')} />;
   }
@@ -46,6 +53,7 @@ const ArticleDetailsPage = () => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div>
+        <Button onClick={handleBackToList}>{t('Back to list')}</Button>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Comments')} />
         <AddCommentForm onSendComment={handleSendComment} />

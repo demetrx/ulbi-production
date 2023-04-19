@@ -1,3 +1,5 @@
+import { User } from 'entities/User/model/types/UserSchema';
+
 export enum ArticleCategory {
   IT = 'IT',
   SCIENCE = 'SCIENCE',
@@ -34,9 +36,15 @@ export interface ArticleBlockImage extends ArticleBlockBase {
 
 export type ArticleBlock = ArticleBlockText | ArticleBlockImage | ArticleBlockCode
 
+export enum ArticleView {
+  LIST = 'list',
+  TILE = 'tile',
+}
+
 export interface Article {
   id: string
   title: string
+  user: User
   subtitle: string
   img: string
   views: number
