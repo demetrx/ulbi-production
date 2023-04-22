@@ -1,5 +1,4 @@
 import React, { memo, useCallback } from 'react';
-import { ReducersMap, withAsyncReducers } from 'shared/lib/hocs';
 import {
   fetchProfileData,
   getProfileError,
@@ -18,6 +17,7 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { DynamicModuleLoader, ReducersMap } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersMap = {
@@ -82,26 +82,28 @@ const ProfilePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      {validationErrors?.length && validationErrors.map((err) => (
-        <Text key={err} theme={TextTheme.Error} text={validationErrorTranslations[err]} />
-      ))}
-      <ProfilePageHeader />
-      <ProfileCard
-        readonly={readOnly}
-        data={formData}
-        isLoading={isLoading}
-        error={error}
-        onChangeFirstName={handleChangeFirstName}
-        onChangeLastName={handleChangeLastName}
-        onChangeAge={handleChangeAge}
-        onChangeCity={handleChangeCity}
-        onChangeUsername={handleChangeUsername}
-        onChangeAvatar={handleChangeAvatar}
-        onChangeCurrency={handleChangeCurrency}
-        onChangeCountry={handleChangeCountry}
-      />
-    </div>
+    <DynamicModuleLoader reducers={reducers}>
+      <div>
+        {validationErrors?.length && validationErrors.map((err) => (
+          <Text key={err} theme={TextTheme.Error} text={validationErrorTranslations[err]} />
+        ))}
+        <ProfilePageHeader />
+        <ProfileCard
+          readonly={readOnly}
+          data={formData}
+          isLoading={isLoading}
+          error={error}
+          onChangeFirstName={handleChangeFirstName}
+          onChangeLastName={handleChangeLastName}
+          onChangeAge={handleChangeAge}
+          onChangeCity={handleChangeCity}
+          onChangeUsername={handleChangeUsername}
+          onChangeAvatar={handleChangeAvatar}
+          onChangeCurrency={handleChangeCurrency}
+          onChangeCountry={handleChangeCountry}
+        />
+      </div>
+    </DynamicModuleLoader>
   );
 };
-export default memo(withAsyncReducers(ProfilePage, { reducers }));
+export default memo(ProfilePage);

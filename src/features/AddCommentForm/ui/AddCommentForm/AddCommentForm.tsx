@@ -5,8 +5,9 @@ import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks';
-import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ReducersMap } from 'shared/lib/hocs';
+import {
+  DynamicModuleLoader, ReducersMap,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   addCommentFormActions,
   addCommentFormReducer,
