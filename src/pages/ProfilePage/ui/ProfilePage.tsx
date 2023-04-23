@@ -18,7 +18,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersMap } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersMap = {

@@ -15,7 +15,7 @@ interface InputProps extends HTMLInputProps{
 
 export const Input = memo((props: InputProps) => {
   const {
-    className, value = '', onChange, type = 'text', placeholder, autofocus, readOnly, ...otherProps
+    className, value, onChange, type = 'text', placeholder, autofocus, readOnly, ...otherProps
   } = props;
 
   const ref = useRef<HTMLInputElement>(null);
@@ -40,7 +40,7 @@ export const Input = memo((props: InputProps) => {
   };
 
   const handleSelect = (e: ChangeEvent<HTMLInputElement>) => {
-    setCaretPosition(e.target.selectionStart || String(value)?.length || 0);
+    setCaretPosition(e.target.selectionStart || String(value ?? '')?.length || 0);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,7 +63,7 @@ export const Input = memo((props: InputProps) => {
           onBlur={handleBlur}
           onFocus={handleFocus}
           onSelect={handleSelect}
-          value={value}
+          value={value ?? ''}
           onChange={handleChange}
           className={cls.input}
           readOnly={readOnly}

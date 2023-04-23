@@ -6,7 +6,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 // import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 // import { useTranslation } from 'react-i18next';
 import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
