@@ -26,6 +26,7 @@ function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): 
 
       return combinedReducer(state, action);
     },
+
     add: (key: StateSchemaKey, reducer: Reducer) => {
       if (!key || reducers[key]) {
         return;

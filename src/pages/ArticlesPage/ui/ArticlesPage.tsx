@@ -9,12 +9,12 @@ import { useSelector } from 'react-redux';
 import { Page } from 'shared/ui/Page/Page';
 // import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 // import { useTranslation } from 'react-i18next';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
   // getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../model/selectors/articles';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
   articlesPageActions,
   articlesPageReducer,
@@ -37,8 +37,7 @@ const ArticlesPage = () => {
   // const { t } = useTranslation();
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(fetchArticlesList({ page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   const loadNextPart = useCallback(() => {
@@ -50,7 +49,7 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={loadNextPart} className={cls.articlesPage}>
         <ArticleViewSelector view={view} onViewClick={handleChangeView} />
         <ArticleList
