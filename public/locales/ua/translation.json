@@ -18,6 +18,12 @@
   "Enter password": "Введіть пароль",
   "Enter username": "Введіть логін",
   "Enter your comment text": "Enter your comment text",
+  "Error occured": "Error occured",
+  "Error occurred": "Error occurred",
+  "Error occurred when loading article": {
+    "": ""
+  },
+  "Error occurred when loading articles": "Error occurred when loading articles.",
   "Error occurred when trying to ": "Error occurred when trying to ",
   "Error occurred while loading": "rror occurred while loading",
   "Failed to load the article": "Failed to load the article",

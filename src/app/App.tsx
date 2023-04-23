@@ -22,9 +22,7 @@ function App() {
         <div className="page-content">
           <Sidebar />
 
-          <div className="page-wrapper">
-            {initialized && <AppRouter />}
-          </div>
+          {initialized && <AppRouter />}
         </div>
       </Suspense>
     </div>

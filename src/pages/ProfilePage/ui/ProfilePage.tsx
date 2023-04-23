@@ -18,6 +18,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { DynamicModuleLoader, ReducersMap } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from 'shared/ui/Page/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersMap = {
@@ -83,7 +84,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div>
+      <Page>
         {validationErrors?.length && validationErrors.map((err) => (
           <Text key={err} theme={TextTheme.Error} text={validationErrorTranslations[err]} />
         ))}
@@ -102,7 +103,7 @@ const ProfilePage = () => {
           onChangeCurrency={handleChangeCurrency}
           onChangeCountry={handleChangeCountry}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

@@ -18,6 +18,12 @@
   "Enter password": "Enter password",
   "Enter username": "Enter username",
   "Enter your comment text": "Enter your comment text",
+  "Error occured": "Error occured",
+  "Error occurred": "Error occurred",
+  "Error occurred when loading article": {
+    "": ""
+  },
+  "Error occurred when loading articles": "Error occurred when loading articles.",
   "Error occurred when trying to ": "Error occurred when trying to ",
   "Error occurred while loading": "",
   "Failed to load the article": "Failed to load the article",
