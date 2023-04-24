@@ -1,8 +1,7 @@
 import { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Text, Button, ButtonTheme } from 'shared/ui';
 import { useSelector } from 'react-redux';
 import {
   getProfileData, getProfileReadOnly, profileActions, updateProfileData,

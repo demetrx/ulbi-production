@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
+import { Select } from 'shared/ui';
 import { Currency } from '../../model/types/currency';
 
 interface CurrencySelectProps {

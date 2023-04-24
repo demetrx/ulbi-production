@@ -20,8 +20,9 @@ i18n
     nsSeparator: false,
     keySeparator: false,
 
-    saveMissingTo: 'all',
-    saveMissing: true,
+    // saveMissingTo: 'current',
+    // saveMissing: true,
+    // defaultNS: 'translation',
 
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',

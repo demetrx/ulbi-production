@@ -29,14 +29,22 @@
   "Read more": "",
   "Reload page": "",
   "Save": "",
+  "Search": "",
   "Server error": "",
+  "Sort by": "",
   "Submit": "",
   "Unexpected error occurred": "",
   "Username": "",
   "Your age": "",
   "Your first name": "",
   "Your last name": "",
+  "ascending": "",
   "decrement": "",
+  "descending": "",
   "increment": "",
-  "throw error": ""
+  "order": "",
+  "publication date": "",
+  "throw error": "",
+  "title": "",
+  "views": ""
 }

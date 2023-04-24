@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, Button } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { CommentList } from 'entities/Comment';
 import {
@@ -10,7 +10,6 @@ import {
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/router/routeConfig';
 import { Page } from 'widgets/Page';
 import {
