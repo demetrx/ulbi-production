@@ -53,8 +53,9 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
     __API_URL__: true,
-    DeepPartial: true,
     __PROJECT__: true,
+    DeepPartial: true,
+    OptionalRecord: true,
   },
   overrides: [
     {

@@ -5,9 +5,10 @@ import {
   ArticleSortField, ArticleView, ArticleViewSelector, ArticleSortSelector,
 } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks';
+import { useAppDispatch, useDebounce } from 'shared/lib/hooks';
 import { Card, Input } from 'shared/ui';
 import { SortOrder } from 'shared/types/sort';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
   getArticlesPageFilter, getArticlesPageOrder,
@@ -29,21 +30,33 @@ export const ArticlesPageFilters = memo((props: ArticlePageFiltersProps) => {
   const search = useSelector(getArticlesPageSearch);
   const order = useSelector(getArticlesPageOrder);
 
+  const fetchData = useCallback(() => {
+    dispatch(fetchArticlesList({ replace: true }));
+  }, [dispatch]);
+
+  const debouncedFetchData = useDebounce(fetchData, 500);
+
   const handleChangeView = useCallback((view: ArticleView) => {
     dispatch(articlesPageActions.setView(view));
   }, [dispatch]);
 
   const handleChangeFilter = useCallback((filter: ArticleSortField) => {
     dispatch(articlesPageActions.setSortField(filter));
-  }, [dispatch]);
+    dispatch(articlesPageActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
 
   const handleChangeOrder = useCallback((order: SortOrder) => {
     dispatch(articlesPageActions.setOrder(order));
-  }, [dispatch]);
+    dispatch(articlesPageActions.setPage(1));
+    fetchData();
+  }, [dispatch, fetchData]);
 
   const handleChangeSearch = useCallback((search: string) => {
     dispatch(articlesPageActions.setSearch(search));
-  }, [dispatch]);
+    dispatch(articlesPageActions.setPage(1));
+    debouncedFetchData();
+  }, [dispatch, debouncedFetchData]);
 
   return (
     <div className={classNames(cls.articlePageFilters, {}, [className])}>

@@ -8,6 +8,7 @@ import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page';
 import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
+import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
   getArticlesPageIsLoading,
@@ -30,9 +31,10 @@ const ArticlesPage = () => {
   const articles = useSelector(getArticles.selectAll);
   const view = useSelector(getArticlesPageView);
   const isLoading = useSelector(getArticlesPageIsLoading);
+  const [searchParams] = useSearchParams();
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
 
   const loadNextPart = useCallback(() => {

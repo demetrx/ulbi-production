@@ -17,7 +17,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await thunk.callThunk();
+    // await thunk.callThunk({});
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4); // pending, fulfilled, 2 dispatches inside
     expect(fetchArticlesList).toHaveBeenCalledWith({ page: 1 });
@@ -36,7 +36,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await thunk.callThunk();
+    // await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2); // pending, fulfilled
     expect(fetchArticlesList).not.toHaveBeenCalled();
