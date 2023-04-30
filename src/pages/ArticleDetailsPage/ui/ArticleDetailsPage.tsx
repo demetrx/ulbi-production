@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Text, Button } from 'shared/ui';
+import { Button, Text, TextSize } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { CommentList } from 'entities/Comment';
 import {
@@ -18,12 +18,20 @@ import {
 import { addArticleComment } from '../model/services/addArticleComment/addArticleComment';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import {
-  articleDetailsCommentsReducer, getArticleComments,
+  getArticleComments,
 } from '../model/slice/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
+import {
+  getArticleRecommendations,
+} from '../model/slice/articleDetailsRecommendationsSlice';
+import { getArticleRecommendationsLoading } from '../model/selectors/recommendations';
+import {
+  fetchArticleRecommendations,
+} from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../model/slice';
 
 const reducers: ReducersMap = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = () => {
@@ -31,6 +39,8 @@ const ArticleDetailsPage = () => {
   const { t } = useTranslation('articles');
   const navigate = useNavigate();
   const comments = useSelector(getArticleComments.selectAll);
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(getArticleRecommendationsLoading);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const dispatch = useAppDispatch();
 
@@ -40,6 +50,7 @@ const ArticleDetailsPage = () => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   const handleBackToList = useCallback(() => {
@@ -59,7 +70,14 @@ const ArticleDetailsPage = () => {
       <Page>
         <Button onClick={handleBackToList}>{t('Back to list')}</Button>
         <ArticleDetails id={id} />
-        <Text className={cls.commentTitle} title={t('Comments')} />
+        <Text size={TextSize.L} className={cls.commentTitle} title={t('Recommend')} />
+        <ArticleList
+          className={cls.recommendations}
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+          target="_blank"
+        />
+        <Text size={TextSize.L} className={cls.commentTitle} title={t('Comments')} />
         <AddCommentForm onSendComment={handleSendComment} />
         <CommentList
           isLoading={commentsIsLoading}

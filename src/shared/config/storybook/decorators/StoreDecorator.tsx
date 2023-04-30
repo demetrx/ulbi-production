@@ -4,11 +4,9 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'entities/Profile';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice';
-import {
-  articleDetailsCommentsReducer,
-} from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
 import { ReducersMap } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 
 // This is for Storybook, may neglect absolute import from inside a module
 const defaultAsyncReducers: ReducersMap = {
@@ -16,7 +14,7 @@ const defaultAsyncReducers: ReducersMap = {
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
   articlesPage: articlesPageReducer,
 };
 
