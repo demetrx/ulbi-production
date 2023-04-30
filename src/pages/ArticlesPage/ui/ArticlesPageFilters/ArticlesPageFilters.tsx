@@ -2,7 +2,12 @@ import React, { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
-  ArticleSortField, ArticleView, ArticleViewSelector, ArticleSortSelector,
+  ArticleSortField,
+  ArticleView,
+  ArticleViewSelector,
+  ArticleSortSelector,
+  ArticleCategory,
+  ArticleCategoriesTabs,
 } from 'entities/Article';
 import { useSelector } from 'react-redux';
 import { useAppDispatch, useDebounce } from 'shared/lib/hooks';
@@ -11,9 +16,11 @@ import { SortOrder } from 'shared/types/sort';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import {
-  getArticlesPageFilter, getArticlesPageOrder,
+  getArticlesPageFilter,
+  getArticlesPageOrder,
   getArticlesPageSearch,
   getArticlesPageView,
+  getArticlesPageCategory,
 } from '../../model/selectors/articles';
 import cls from './ArticlesPageFilters.module.scss';
 
@@ -29,6 +36,7 @@ export const ArticlesPageFilters = memo((props: ArticlePageFiltersProps) => {
   const sortField = useSelector(getArticlesPageFilter);
   const search = useSelector(getArticlesPageSearch);
   const order = useSelector(getArticlesPageOrder);
+  const category = useSelector(getArticlesPageCategory);
 
   const fetchData = useCallback(() => {
     dispatch(fetchArticlesList({ replace: true }));
@@ -58,6 +66,12 @@ export const ArticlesPageFilters = memo((props: ArticlePageFiltersProps) => {
     debouncedFetchData();
   }, [dispatch, debouncedFetchData]);
 
+  const handleChangeType = useCallback((value: ArticleCategory) => {
+    dispatch(articlesPageActions.setType(value));
+    dispatch(articlesPageActions.setPage(1));
+    debouncedFetchData();
+  }, [dispatch, debouncedFetchData]);
+
   return (
     <div className={classNames(cls.articlePageFilters, {}, [className])}>
       <div className={cls.sortWrapper}>
@@ -77,6 +91,7 @@ export const ArticlesPageFilters = memo((props: ArticlePageFiltersProps) => {
           placeholder={t('Search')}
         />
       </Card>
+      <ArticleCategoriesTabs value={category} onClick={handleChangeType} className={cls.tabs} />
     </div>
   );
 });

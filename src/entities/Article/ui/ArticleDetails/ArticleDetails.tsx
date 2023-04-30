@@ -8,7 +8,9 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from 'entities/Article/model/selectors/articleDetails';
-import { DynamicModuleLoader, ReducersMap } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader, ReducersMap,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   Text, TextAlign, TextSize, Skeleton, Avatar, Icon,
 } from 'shared/ui';

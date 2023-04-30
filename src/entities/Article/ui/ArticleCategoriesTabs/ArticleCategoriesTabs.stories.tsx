@@ -3,16 +3,15 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/theme';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ArticlesPageFilters } from './ArticlesPageFilters';
+import { ArticleCategoriesTabs } from './ArticleCategoriesTabs';
 
 export default {
-  title: 'pages/ArticlesPage/ArticlesPageFilters',
-  component: ArticlesPageFilters,
+  title: 'entities/ArticleCategoriesTabs/ArticleCategoriesTabs',
+  component: ArticleCategoriesTabs,
   argTypes: {},
-  decorators: [StoreDecorator({})],
-} as ComponentMeta<typeof ArticlesPageFilters>;
+} as ComponentMeta<typeof ArticleCategoriesTabs>;
 
-const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <ArticlesPageFilters {...args} />;
+const Template: ComponentStory<typeof ArticleCategoriesTabs> = (args) => <ArticleCategoriesTabs {...args} />;
 
 export const Normal = Template.bind({});
 

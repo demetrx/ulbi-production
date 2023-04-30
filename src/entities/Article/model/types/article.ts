@@ -1,4 +1,4 @@
-import { User } from 'entities/User/model/types/UserSchema';
+import { UserType as User } from 'entities/User';
 
 export enum ArticleSortField {
   VIEWS = 'views',
@@ -7,6 +7,7 @@ export enum ArticleSortField {
 
 }
 export enum ArticleCategory {
+  ALL = 'ALL',
   IT = 'IT',
   SCIENCE = 'SCIENCE',
   ECONOMICS = 'ECONOMICS',
