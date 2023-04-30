@@ -41,7 +41,7 @@ export const fetchArticlesList = createAsyncThunk<
           _sort: sort,
           _order: order,
           q: search,
-          category: category === ArticleCategory.ALL ? undefined : category,
+          category_like: category === ArticleCategory.ALL ? undefined : category,
         },
       });
 
