@@ -2,8 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/theme';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ArticleEditPage } from './ArticleEditPage';
+import ArticleEditPage from './ArticleEditPage';
 
 export default {
   title: 'pages/ArticleEditPage',
