@@ -4,11 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import {
-  getArticleDetailsData,
-  getArticleDetailsError,
-  getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/articleDetails';
-import {
   DynamicModuleLoader, ReducersMap,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
@@ -16,6 +11,11 @@ import {
 } from 'shared/ui';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import {
   ArticleBlockImageComponent,

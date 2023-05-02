@@ -14,7 +14,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { Page } from 'widgets/Page';
 import {
   ArticleDetailsPageHeader,
-} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+} from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import {
   fetchCommentsByArticleId,
 } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

@@ -10,7 +10,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-arch-validator'],
   rules: {
     'react/jsx-filename-extension': ['error', {
       extensions: ['.jsx', '.tsx'],
@@ -39,6 +39,7 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react/self-closing-comp': 'off',
+    'fsd-arch-validator/relative-imports-within-module': 2,
     'i18next/no-literal-string': [2, {
       markupOnly: true,
       ignoreAttribute: ['data-testid', 'to', 'target'],

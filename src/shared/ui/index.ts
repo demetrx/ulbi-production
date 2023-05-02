@@ -5,7 +5,6 @@ export {
 export { Portal } from './Portal/Portal';
 export { Loader } from './Loader/Loader';
 export { ButtonSize, Button, ButtonTheme } from './Button/Button';
-export { ThemeSwitcher } from './ThemeSwitcher/ThemeSwitcher';
 export { LangSwitcher } from './LangSwitcher/LangSwitcher';
 export { Modal } from './Modal/Modal';
 export { AppLink, AppLinkTheme } from './AppLink/AppLink';

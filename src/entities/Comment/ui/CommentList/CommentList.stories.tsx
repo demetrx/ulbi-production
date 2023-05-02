@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { isLoading } from 'entities/Article/ui/ArticleDetails/ArticleDetails.stories';
 import { CommentList } from './CommentList';
 
 export default {

@@ -13,7 +13,9 @@ const getArticlesPageFilter = (state: StateSchema) => (
 );
 const getArticlesPageOrder = (state: StateSchema) => state.articlesPage?.order ?? 'asc';
 const getArticlesPageSearch = (state: StateSchema) => state.articlesPage?.search ?? '';
-const getArticlesPageCategory = (state: StateSchema) => state.articlesPage?.category ?? ArticleCategory.ALL;
+const getArticlesPageCategory = (state: StateSchema) => (
+  state.articlesPage?.category ?? ArticleCategory.ALL
+);
 
 export {
   getArticlesPageError,

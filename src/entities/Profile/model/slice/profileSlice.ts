@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   updateProfileData,
-} from 'entities/Profile/model/services/updateProfileData/updateProfileData';
+} from '../services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
 import { Profile, ProfileSchema } from '../types/ProfileSchema';
 

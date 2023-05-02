@@ -17,7 +17,9 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { DynamicModuleLoader, ReducersMap } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader, ReducersMap,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from 'widgets/Page';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
