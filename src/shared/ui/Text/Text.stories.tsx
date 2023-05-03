@@ -55,7 +55,21 @@ Error.args = {
 
 export const SizeL = Template.bind({});
 SizeL.args = {
-  title: 'Error name',
-  text: 'Error error error error error error',
+  title: 'Title title title',
+  text: 'Text text text text text text',
+  size: TextSize.L,
+};
+
+export const SizeM = Template.bind({});
+SizeM.args = {
+  title: 'Title title title',
+  text: 'Text text text text text text',
   size: TextSize.M,
+};
+
+export const SizeS = Template.bind({});
+SizeM.args = {
+  title: 'Title title title',
+  text: 'Text text text text text text',
+  size: TextSize.S,
 };
