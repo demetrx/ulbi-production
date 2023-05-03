@@ -5,6 +5,7 @@ import {
 } from 'shared/ui';
 import { useSelector } from 'react-redux';
 import { ThemeSwitcher } from 'features/ThemeSwitcher/ThemeSwitcher';
+import { VStack } from 'shared/ui/Stack';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
@@ -55,9 +56,9 @@ export const Sidebar = memo((props: SidebarProps) => {
         {collapsed ? '>' : '<'}
       </Button>
 
-      <nav className={cls.items}>
+      <VStack gap={8} className={cls.items}>
         {itemsList}
-      </nav>
+      </VStack>
 
       <div className={cls.switchers}>
         <ThemeSwitcher />

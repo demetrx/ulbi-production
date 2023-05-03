@@ -7,6 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks';
 import {
   DynamicModuleLoader, ReducersMap,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from 'shared/ui/Stack';
 import {
   addCommentFormActions,
   addCommentFormReducer,
@@ -42,7 +43,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.addCommentForm, {}, [className])}>
+      <HStack justify="between" max className={classNames(cls.addCommentForm, {}, [className])}>
         <Input
           className={cls.input}
           placeholder={t('Enter your comment text')}
@@ -50,7 +51,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
           onChange={handleCommentTextChange}
         />
         <Button onClick={handleSendComment}>{t('Submit')}</Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 });

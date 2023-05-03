@@ -6,6 +6,7 @@ import {
 } from 'shared/ui';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/ProfileSchema';
 
@@ -46,31 +47,43 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+      <HStack
+        justify="center"
+        max
+        className={classNames(cls.profileCard, {}, [className, cls.loading])}
+      >
         <Loader />
-      </div>
+      </HStack>
     );
   }
 
   if (error) {
     return (
-      <div className={classNames(cls.profileCard, {}, [className, cls.error])}>
+      <HStack
+        justify="center"
+        max
+        className={classNames(cls.profileCard, {}, [className, cls.error])}
+      >
         <Text
           align={TextAlign.CENTER}
           theme={TextTheme.Error}
           title={t('An error occurred while loading')}
           text={t('Please, try to refresh the page')}
         />
-      </div>
+      </HStack>
     );
   }
 
   return (
-    <div className={classNames(cls.profileCard, { [cls.editing]: !readonly }, [className])}>
+    <VStack
+      gap={8}
+      max
+      className={classNames(cls.profileCard, { [cls.editing]: !readonly }, [className])}
+    >
       {data?.avatar && (
-      <div className={cls.avatarWrapper}>
+      <HStack justify="center" max className={cls.avatarWrapper}>
         <Avatar src={data.avatar} size={100} />
-      </div>
+      </HStack>
       )}
       <Input
         readOnly={readonly}
@@ -129,6 +142,6 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         onChange={onChangeCountry}
         readOnly={readonly}
       />
-    </div>
+    </VStack>
   );
 });
