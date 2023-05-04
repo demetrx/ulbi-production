@@ -42,7 +42,17 @@ module.exports = {
     'fsd-arch-validator/relative-imports-within-module': 2,
     'i18next/no-literal-string': [2, {
       markupOnly: true,
-      ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'role'],
+      ignoreAttribute: [
+        'data-testid',
+        'to',
+        'target',
+        'justify',
+        'align',
+        'direction',
+        'role',
+        'as',
+        'defaultValue',
+      ],
     },
     ],
   },
