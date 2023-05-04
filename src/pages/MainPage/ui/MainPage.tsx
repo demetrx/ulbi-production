@@ -10,9 +10,7 @@ const MainPage = memo(() => {
   return (
     <Page>
       {t('Main Page')}
-      <div>adasasfsafdasdsa</div>
       <HStack>
-        <div>adasasfsafdasdsa</div>
         <ListBox
           defaultValue="Select value"
           onChange={(value: string) => console.log(value)}
@@ -24,10 +22,6 @@ const MainPage = memo(() => {
           ]}
         />
       </HStack>
-      <div>adasasfsafdasdsa</div>
-      <div>adasasfsafdasdsa</div>
-      <div>adasasfsafdasdsa</div>
-      <div>adasasfsafdasdsa</div>
     </Page>
   );
 });

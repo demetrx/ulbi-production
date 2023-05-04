@@ -2,7 +2,7 @@ import { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import {
-  AppLink, AppLinkTheme, Button, ButtonTheme, Text, TextTheme,
+  AppLink, AppLinkTheme, Avatar, Button, ButtonTheme, Dropdown, Text, TextTheme,
 } from 'shared/ui';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,9 +46,19 @@ export const NavBar = memo((props: NavBarProps) => {
         >
           {t('Create Article')}
         </AppLink>
-        <Button theme={ButtonTheme.CLEAR_INVERTED} className={cls.links} onClick={handleLogout}>
-          {t('Log Out')}
-        </Button>
+        <Dropdown
+          className={cls.dropdown}
+          items={[
+            {
+              content: t('Profile'),
+              href: RoutePath.profile + authData.id,
+            },
+            {
+              content: t('Log Out'),
+              onClick: handleLogout,
+            }]}
+          trigger={<Avatar size={30} src={authData.avatar} />}
+        />
       </header>
     );
   }

@@ -27,7 +27,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
       items={options}
       defaultValue={t('Choose currency')}
       readonly={readOnly}
-      direction="top"
+      direction="top right"
       label={t('Choose currency')}
     />
   );
