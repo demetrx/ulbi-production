@@ -21,7 +21,8 @@
     "analyze:prod": "npm run build:prod --env analyze=true",
     "storybook": "start-storybook -p 6007 -c config/storybook",
     "storybook:build": "build-storybook -c config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "node ./scripts/createFSDSlice/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
