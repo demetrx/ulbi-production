@@ -2,15 +2,15 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/theme';
-import ArticleEditPage from './ArticleEditPage';
+import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 
 export default {
-  title: 'pages/ArticleEditPage/ArticleEditPage',
-  component: ArticleEditPage,
+  title: 'features/EditableProfileCard/EditableProfileCardHeader',
+  component: EditableProfileCardHeader,
   argTypes: {},
-} as ComponentMeta<typeof ArticleEditPage>;
+} as ComponentMeta<typeof EditableProfileCardHeader>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => <EditableProfileCardHeader {...args} />;
 
 export const Normal = Template.bind({});
 

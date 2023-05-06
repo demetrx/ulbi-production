@@ -1,4 +1,5 @@
 import { Middleware } from '@reduxjs/toolkit';
+import { rtkAPI } from 'shared/api/rtkAPI';
 import { StateSchema } from './StateSchema';
 
 const interceptorMiddleware: Middleware<{}, StateSchema> = () => (next) => (action) => {
@@ -9,4 +10,4 @@ const interceptorMiddleware: Middleware<{}, StateSchema> = () => (next) => (acti
   return next(action);
 };
 
-export const middlewares = [interceptorMiddleware];
+export const middlewares = [interceptorMiddleware, rtkAPI.middleware];

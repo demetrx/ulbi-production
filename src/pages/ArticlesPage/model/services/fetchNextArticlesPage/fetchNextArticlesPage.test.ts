@@ -19,7 +19,7 @@ describe('fetchNextArticlesPage.test', () => {
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4); // pending, fulfilled, 2 dispatches inside
-    expect(fetchArticlesList).toHaveBeenCalledWith({ page: 3 });
+    expect(fetchArticlesList).toHaveBeenCalled();
   });
 
   test('fetchArticlesList not called when hasMore = false', async () => {

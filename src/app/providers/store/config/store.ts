@@ -8,6 +8,7 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/store/config/reducerManager';
 import { $api } from 'shared/api/api';
 import { UIReducer } from 'features/UI';
+import { rtkAPI } from 'shared/api/rtkAPI';
 import { StateSchema } from './StateSchema';
 import { middlewares } from './middlewares';
 
@@ -21,6 +22,7 @@ export function createReduxStore(
     counter: counterReducer,
     user: userReducer,
     ui: UIReducer,
+    [rtkAPI.reducerPath]: rtkAPI.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);
@@ -29,17 +31,13 @@ export function createReduxStore(
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => {
-      const defaultMiddleware = getDefaultMiddleware({
-        thunk: {
-          extraArgument: {
-            api: $api,
-          },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api: $api,
         },
-      });
-
-      return [...middlewares, ...defaultMiddleware] as typeof defaultMiddleware;
-    },
+      },
+    }).concat(middlewares),
   });
 
   // @ts-ignore

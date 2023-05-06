@@ -2,15 +2,15 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/theme';
-import ArticleEditPage from './ArticleEditPage';
+import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
-  title: 'pages/ArticleEditPage/ArticleEditPage',
-  component: ArticleEditPage,
+  title: 'pages/ArticleInfiniteList',
+  component: ArticleInfiniteList,
   argTypes: {},
-} as ComponentMeta<typeof ArticleEditPage>;
+} as ComponentMeta<typeof ArticleInfiniteList>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => <ArticleInfiniteList {...args} />;
 
 export const Normal = Template.bind({});
 

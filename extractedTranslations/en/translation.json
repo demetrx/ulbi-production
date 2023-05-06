@@ -19,6 +19,9 @@
   "Enter password": "",
   "Enter username": "",
   "Enter your comment text": "",
+  "Error when loading articles": {
+    "": ""
+  },
   "Failed to load the article": "",
   "First and last name are required": "",
   "IT": "",
@@ -34,6 +37,7 @@
   "Page not found": "",
   "Please, try to refresh the page": "",
   "Profile": "",
+  "Profile not found": "",
   "Read more": "",
   "Recommend": "",
   "Reload page": "",
