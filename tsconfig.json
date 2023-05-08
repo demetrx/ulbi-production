@@ -17,7 +17,8 @@
     "esModuleInterop": true,
     // when no default exports: make modules imports simple (not import * as smth)
     "allowSyntheticDefaultImports": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

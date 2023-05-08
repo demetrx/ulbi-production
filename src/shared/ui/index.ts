@@ -1,4 +1,5 @@
-export { Select, SelectOption } from './Select/Select';
+export { Select } from './Select/Select';
+export type { SelectOption } from './Select/Select';
 export {
   TextAlign, TextTheme, Text, TextSize,
 } from './Text/Text';
@@ -15,4 +16,5 @@ export { Icon } from './Icon/Icon';
 export { Code } from './Code/Code';
 export { Avatar } from './Avatar/Avatar';
 export { ListBox } from './ListBox/ListBox';
-export { Dropdown, DropdownItem } from './Dropdown/Dropdown';
+export { Dropdown } from './Dropdown/Dropdown';
+export type { DropdownItem } from './Dropdown/Dropdown';
