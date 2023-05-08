@@ -13,7 +13,7 @@ const AppRouter = () => {
         key={routeProps.path}
         path={routeProps.path}
         element={routeProps.authOnly
-          ? <RequireAuth>{routeProps.element as ReactElement}</RequireAuth>
+          ? <RequireAuth roles={routeProps.roles}>{routeProps.element as ReactElement}</RequireAuth>
           : routeProps.element}
       />
     ),

@@ -10,6 +10,10 @@
 .links,
 .dropdown {
   margin-left: auto;
+
+  div {
+    color: var(--inverted-primary-color);
+  }
 }
 
 .mainLink {

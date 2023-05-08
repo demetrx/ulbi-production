@@ -1,6 +1,9 @@
 {
   "": "",
   "About us": "",
+  "Admin Panel": "",
+  "Admin Panel Page": "",
+  "Admin panel": "",
   "All": "",
   "An error occurred while loading": "",
   "Article not found!": "",
@@ -25,12 +28,14 @@
   "Failed to load the article": "",
   "First and last name are required": "",
   "IT": "",
+  "IT TODAY": "",
   "Incorrect age": "",
   "Incorrect country": "",
   "Link to the avatar": "",
   "Log In": "",
   "Log Out": "",
   "Main Page": "",
+  "Navigation": "",
   "No articles found": "",
   "No comments yet": "",
   "No data provided": "",
@@ -47,8 +52,10 @@
   "Server error": "",
   "Sort by": "",
   "Submit": "",
+  "Ulbi TV App": "",
   "Unexpected error occurred": "",
   "Username": "",
+  "You don't have the required rights to access this page": "",
   "Your age": "",
   "Your first name": "",
   "Your last name": "",
@@ -61,5 +68,6 @@
   "publication date": "",
   "throw error": "",
   "title": "",
-  "views": ""
+  "views": "",
+  "Админка": ""
 }
