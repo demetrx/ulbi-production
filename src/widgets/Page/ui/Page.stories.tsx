@@ -2,12 +2,14 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from 'app/providers/theme';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { Page } from './Page';
 
 export default {
-  title: 'pages/Page',
+  title: 'widgets/Page',
   component: Page,
   argTypes: {},
+  decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof Page>;
 
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;

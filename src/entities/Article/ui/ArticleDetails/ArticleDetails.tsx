@@ -29,7 +29,7 @@ import { ArticleBlockCodeComponent } from '../ArticleBlockCodeComponent/ArticleB
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersMap = {

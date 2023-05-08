@@ -27,7 +27,7 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 
 interface EditableProfileCardProps {
   className?: string;
-  id: string
+  id?: string
 }
 
 const reducers: ReducersMap = {

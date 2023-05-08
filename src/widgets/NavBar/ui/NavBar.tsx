@@ -12,7 +12,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/router/routeConfig';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import cls from './Navbar.module.scss';
+import cls from './NavBar.module.scss';
 
 interface NavBarProps {
   className?: string;

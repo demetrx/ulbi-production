@@ -4,7 +4,7 @@ import { Text } from 'shared/ui';
 import { Card } from './Card';
 
 export default {
-  title: 'pages/Card',
+  title: 'shared/Card',
   component: Card,
   argTypes: {},
 } as ComponentMeta<typeof Card>;
