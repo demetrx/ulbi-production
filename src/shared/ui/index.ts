@@ -15,6 +15,4 @@ export { Skeleton } from './Skeleton/Skeleton';
 export { Icon } from './Icon/Icon';
 export { Code } from './Code/Code';
 export { Avatar } from './Avatar/Avatar';
-export { ListBox } from './ListBox/ListBox';
-export { Dropdown } from './Dropdown/Dropdown';
-export type { DropdownItem } from './Dropdown/Dropdown';
+export { ListBox, Dropdown, Popover } from './Popups';

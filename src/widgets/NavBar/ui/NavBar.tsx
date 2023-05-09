@@ -10,8 +10,11 @@ import {
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/router/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown, Icon, Popover } from 'shared/ui';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
+import { NotificationsList } from 'entities/Notification';
 import cls from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -55,29 +58,41 @@ export const NavBar = memo(({ className }: NavBarProps) => {
         >
           {t('Create Article')}
         </AppLink>
-        <Dropdown
-          direction="bottom left"
-          className={cls.dropdown}
-          items={[
-            ...(isAdminPanelAvailable ? [{
-              content: t('Admin Panel'),
-              href: RoutePath.admin_panel,
-            }] : []),
-            {
-              content: t('Profile'),
-              href: RoutePath.profile + authData.id,
-            },
-            {
-              content: t('Log Out'),
-              onClick: onLogout,
-            },
-          ]}
-          trigger={
-            authData.avatar
-              ? <Avatar size={30} src={authData.avatar} />
-              : <div>{t('Navigation')}</div>
-          }
-        />
+        <HStack gap={16} className={cls.actions}>
+          <Popover
+            direction="bottom left"
+            trigger={(
+              <Button theme={ButtonTheme.CLEAR}>
+                <Icon Svg={NotificationIcon} inverted />
+              </Button>
+          )}
+          >
+            <NotificationsList />
+          </Popover>
+
+          <Dropdown
+            direction="bottom left"
+            items={[
+              ...(isAdminPanelAvailable ? [{
+                content: t('Admin Panel'),
+                href: RoutePath.admin_panel,
+              }] : []),
+              {
+                content: t('Profile'),
+                href: RoutePath.profile + authData.id,
+              },
+              {
+                content: t('Log Out'),
+                onClick: onLogout,
+              },
+            ]}
+            trigger={
+              authData.avatar
+                ? <Avatar size={30} src={authData.avatar} />
+                : <div>{t('Navigation')}</div>
+            }
+          />
+        </HStack>
       </header>
     );
   }
