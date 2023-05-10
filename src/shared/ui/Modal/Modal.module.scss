@@ -1,10 +1,13 @@
-.modal {
+.Modal {
   position: fixed;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   opacity: 0;
   pointer-events: none;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 100;
+  color: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,20 +25,24 @@
 .content {
   padding: 20px;
   border-radius: 12px;
-  background-color: var(--bg-color);
-  transition: transform 0.3s;
+  background: var(--bg-color);
+  transition: 0.3s transform;
   transform: scale(0.5);
   max-width: 60%;
-  color: var(--primary-color);
 }
 
 .opened {
   pointer-events: auto;
   opacity: 1;
   z-index: var(--modal-z-index);
-  visibility: visible;
 
   .content {
     transform: scale(1);
+  }
+}
+
+.isClosing {
+  .content {
+    transform: scale(0.2);
   }
 }

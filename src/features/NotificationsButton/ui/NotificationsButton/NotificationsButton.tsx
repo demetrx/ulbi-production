@@ -6,6 +6,7 @@ import {
 import { NotificationsList } from 'entities/Notification';
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import cls from './NotificationsButton.module.scss';
 
 interface NotificationsButtonProps {
@@ -30,9 +31,11 @@ export const NotificationsButton = memo((props: NotificationsButtonProps) => {
     return (
       <>
         {trigger}
-        <Drawer isOpen={isDrawerOpen} onClose={handleCloseDrawer}>
-          <NotificationsList />
-        </Drawer>
+        <AnimationProvider>
+          <Drawer isOpen={isDrawerOpen} onClose={handleCloseDrawer}>
+            <NotificationsList />
+          </Drawer>
+        </AnimationProvider>
       </>
     );
   }
@@ -45,6 +48,5 @@ export const NotificationsButton = memo((props: NotificationsButtonProps) => {
     >
       <NotificationsList className={cls.notifications} />
     </Popover>
-
   );
 });
