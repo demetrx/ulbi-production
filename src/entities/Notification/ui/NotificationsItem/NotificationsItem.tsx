@@ -1,20 +1,34 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
+import { Card, Text } from 'shared/ui';
+import { CardTheme } from 'shared/ui/Card/Card';
+import { Notification } from '../../model/types/notification';
 import cls from './NotificationsItem.module.scss';
 
 interface NotificationsItemProps {
   className?: string;
+  item: Notification
 }
 
 export const NotificationsItem = memo((props: NotificationsItemProps) => {
-  const { className } = props;
+  const { className, item } = props;
 
-  const { t } = useTranslation();
-
-  return (
-    <div className={classNames(cls.NotificationsItem, {}, [className])}>
-
-    </div>
+  const content = (
+    <Card
+      theme={CardTheme.OUTLINED}
+      className={classNames(cls.notificationsItem, {}, [className])}
+    >
+      <Text title={item.title} text={item.description} />
+    </Card>
   );
+
+  if (item.href) {
+    return (
+      <a className={cls.link} href={item.href} target="_blank" rel="noreferrer">
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 });
