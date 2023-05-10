@@ -4,6 +4,7 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/theme';
+import { Overlay } from 'shared/ui/Overlay/Overlay';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -50,10 +51,6 @@ export const Modal: FC<ModalProps> = (props) => {
     };
   }, [isOpen, handleEscPress]);
 
-  const handleContentClick: MouseEventHandler<HTMLDivElement> = (e) => {
-    e.stopPropagation();
-  };
-
   if (lazy && !isMounted) {
     return null;
   }
@@ -61,10 +58,9 @@ export const Modal: FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div className={classNames(cls.modal, { [cls.opened]: isOpen }, [className])}>
-        <div className={cls.overlay} onClick={handleClose}>
-          <div className={classNames(cls.content, {}, [cls[theme]])} onClick={handleContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={handleClose} />
+        <div className={classNames(cls.content, {}, [cls[theme]])}>
+          {children}
         </div>
       </div>
     </Portal>

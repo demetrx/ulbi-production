@@ -16,3 +16,4 @@ export { Icon } from './Icon/Icon';
 export { Code } from './Code/Code';
 export { Avatar } from './Avatar/Avatar';
 export { ListBox, Dropdown, Popover } from './Popups';
+export { Drawer } from './Drawer/Drawer';

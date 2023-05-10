@@ -5,6 +5,9 @@
   pointer-events: none;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .overlay {

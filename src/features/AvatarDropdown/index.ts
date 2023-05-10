@@ -1,2 +1,2 @@
 export { AvatarDropdown } from './ui/AvatarDropdown/AvatarDropdown';
-export { AvatarDropdownSchema } from './model/types/AvatarDropdownSchema';
+export type { AvatarDropdownSchema } from './model/types/AvatarDropdownSchema';
