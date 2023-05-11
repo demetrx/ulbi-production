@@ -1,12 +1,12 @@
 import React, { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text, TextSize } from 'shared/ui';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
-import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import { useTranslation } from 'react-i18next';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text, TextSize } from '@/shared/ui';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { CommentList } from '@/entities/Comment';
+import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
+import { VStack } from '@/shared/ui/Stack';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addArticleComment } from '../../model/services/addArticleComment/addArticleComment';

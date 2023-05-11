@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared/ui';
+import { ListBox } from '@/shared/ui';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {

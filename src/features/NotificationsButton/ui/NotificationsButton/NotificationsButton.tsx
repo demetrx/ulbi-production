@@ -1,12 +1,12 @@
 import React, { memo, useCallback, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   Button, ButtonTheme, Drawer, Icon, Popover,
-} from 'shared/ui';
-import { NotificationsList } from 'entities/Notification';
-import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
-import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
+} from '@/shared/ui';
+import { NotificationsList } from '@/entities/Notification';
+import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationsButton.module.scss';
 
 interface NotificationsButtonProps {

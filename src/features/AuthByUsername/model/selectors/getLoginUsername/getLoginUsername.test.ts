@@ -1,5 +1,5 @@
 import { } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/store';
+import { StateSchema } from '@/app/providers/store';
 import { getLoginUsername } from './getLoginUsername';
 
 describe('getLoginUsername.test', () => {

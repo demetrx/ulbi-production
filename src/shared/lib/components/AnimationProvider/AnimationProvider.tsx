@@ -18,7 +18,9 @@ const getAsyncAnimationModules = () => (
   Promise.all([import('@react-spring/web'), import('@use-gesture/react')])
 );
 
-export const useAnimationLibs = () => useContext(AnimationContext) as Required<AnimationContextPayload>;
+export const useAnimationLibs = () => (
+  useContext(AnimationContext) as Required<AnimationContextPayload>
+);
 
 export const AnimationProvider = ({ children }: {children: ReactNode}) => {
   const SpringRef = useRef<SpringType>();

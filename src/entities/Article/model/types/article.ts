@@ -1,4 +1,4 @@
-import { UserType as User } from 'entities/User';
+import { UserType as User } from '@/entities/User';
 
 export enum ArticleSortField {
   VIEWS = 'views',

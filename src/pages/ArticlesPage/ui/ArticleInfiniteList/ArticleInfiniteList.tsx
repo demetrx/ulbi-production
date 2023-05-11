@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { ArticleList } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui';
 import { useTranslation } from 'react-i18next';
+import { ArticleList } from '@/entities/Article';
+import { Text } from '@/shared/ui';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import {
   getArticlesPageError,

@@ -1,14 +1,14 @@
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   Button, ButtonTheme, Input, Text, TextTheme,
-} from 'shared/ui';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks';
+} from '@/shared/ui';
+import { useAppDispatch } from '@/shared/lib/hooks';
 import {
   DynamicModuleLoader, ReducersMap,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';

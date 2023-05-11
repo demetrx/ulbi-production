@@ -1,17 +1,17 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { NotificationsButtonSchema } from '../types/NotificationsButtonSchema';
 
 const initialState: NotificationsButtonSchema = {
-  
+
 };
 
 export const notificationsButtonSlice = createSlice({
   name: 'notificationsButton',
   initialState,
   reducers: {
-    template: (state, action: PayloadAction<string>) => {
-           
-      },
+    // template: (state, action: PayloadAction<string>) => {
+    //
+    // },
   },
   // extraReducers: (builder) => {
   //     builder
@@ -31,4 +31,3 @@ export const notificationsButtonSlice = createSlice({
 
 export const { actions: notificationsButtonActions } = notificationsButtonSlice;
 export const { reducer: notificationsButtonReducer } = notificationsButtonSlice;
- 

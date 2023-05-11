@@ -11,7 +11,7 @@
     // absolute imports
     "baseUrl": ".",
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     },
     // module.exports&require in packages (common js) => import&export (esModules)
     "esModuleInterop": true,

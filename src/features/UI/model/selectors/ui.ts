@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/store';
 import { createSelector } from '@reduxjs/toolkit';
+import { StateSchema } from '@/app/providers/store';
 
 export const getUIScroll = (state: StateSchema) => state.ui.scroll;
 export const getUIScrollByPath = createSelector(

@@ -1,8 +1,8 @@
-import { renderComponent } from 'shared/config/tests/renderComponent/renderComponent';
 import { screen, waitFor } from '@testing-library/react';
-import { profileMock } from 'entities/Profile/model/mocks/profileMock';
 import userEvent from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+import { renderComponent } from '@/shared/config/tests/renderComponent/renderComponent';
+import { profileMock } from '@/entities/Profile/model/mocks/profileMock';
+import { $api } from '@/shared/api/api';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
 

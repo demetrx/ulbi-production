@@ -1,6 +1,6 @@
 import { ChangeEvent, useMemo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { genericMemo } from 'shared/lib/genericMemo/genericMemo';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { genericMemo } from '@/shared/lib/genericMemo/genericMemo';
 import cls from './Select.module.scss';
 
 export interface SelectOption<T extends string> {

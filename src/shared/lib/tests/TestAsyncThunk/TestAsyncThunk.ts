@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/store';
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import { NavigateFunction } from 'react-router-dom';
 import axios, { AxiosStatic } from 'axios';
+import { StateSchema } from '@/app/providers/store';
 
 type AsyncThunkType<Return, Arg, RejectedValue> =
   (arg: Arg) => AsyncThunkAction<Return, Arg, {rejectValue: RejectedValue }>

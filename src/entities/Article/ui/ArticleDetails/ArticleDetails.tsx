@@ -1,17 +1,17 @@
 import { memo, useEffect } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch } from 'shared/lib/hooks';
 import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks';
 import {
   DynamicModuleLoader, ReducersMap,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   Text, TextAlign, TextSize, Skeleton, Avatar, Icon,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import { HStack, VStack } from 'shared/ui/Stack';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

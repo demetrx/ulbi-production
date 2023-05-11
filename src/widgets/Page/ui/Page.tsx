@@ -1,13 +1,13 @@
 import {
   MutableRefObject, ReactNode, UIEvent, useLayoutEffect, useRef,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useAppDispatch, useThrottle } from 'shared/lib/hooks';
-import { getUIScrollByPath, UIActions } from 'features/UI';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StateSchema } from 'app/providers/store';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useAppDispatch, useThrottle } from '@/shared/lib/hooks';
+import { getUIScrollByPath, UIActions } from '@/features/UI';
+import { StateSchema } from '@/app/providers/store';
 import cls from './Page.module.scss';
 
 interface PageProps {
