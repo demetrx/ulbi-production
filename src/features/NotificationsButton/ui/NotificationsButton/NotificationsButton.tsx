@@ -31,11 +31,9 @@ export const NotificationsButton = memo((props: NotificationsButtonProps) => {
     return (
       <>
         {trigger}
-        <AnimationProvider>
-          <Drawer isOpen={isDrawerOpen} onClose={handleCloseDrawer}>
-            <NotificationsList />
-          </Drawer>
-        </AnimationProvider>
+        <Drawer isOpen={isDrawerOpen} onClose={handleCloseDrawer}>
+          <NotificationsList />
+        </Drawer>
       </>
     );
   }
