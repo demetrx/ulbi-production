@@ -15,14 +15,15 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starCount: number) => void;
   onAccept?: (starCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
   const {
-    className, title, feedbackTitle, hasFeedback, onCancel, onAccept,
+    className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0,
   } = props;
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [startsCount, setStartsCount] = useState(0);
+  const [startsCount, setStartsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
   const { t } = useTranslation();
@@ -45,13 +46,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const handleCancel = useCallback(() => {
     setIsModalOpen(false);
     onCancel?.(startsCount);
-  }, []);
+  }, [onCancel, startsCount]);
 
   return (
-    <Card className={classNames(cls.ratingCard, {}, [className])}>
-      <VStack align="center" gap={8}>
-        <Text title={title} />
-        <StarRating size={40} onSelect={handleSelectStars} />
+    <Card className={classNames(cls.ratingCard, {}, [className])} max>
+      <VStack align="center" gap={8} max>
+        <Text title={startsCount ? t('Thanks for your feedback!') : title} />
+        <StarRating size={40} onSelect={handleSelectStars} selectedStars={startsCount} />
       </VStack>
       <Modal isOpen={isModalOpen} lazy onClose={handleCancel}>
         <VStack max gap={32}>

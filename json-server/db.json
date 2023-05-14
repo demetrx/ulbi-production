@@ -600,14 +600,18 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg"
     }
   ],
@@ -633,6 +637,45 @@
       "city": "Krakow",
       "username": "user",
       "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Great article",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 2,
+      "feedback": "Bad article",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "rate": 4,
+      "articleId": "3",
+      "userId": "1",
+      "feedback": "abc",
+      "id": "Z_SJhFW"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Great author",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 2,
+      "feedback": "Bad author",
+      "userId": "2",
+      "profileId": "2"
     }
   ]
 }
