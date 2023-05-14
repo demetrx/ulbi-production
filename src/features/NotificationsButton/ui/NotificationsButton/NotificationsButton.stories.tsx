@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { NotificationsButton } from './NotificationsButton';
 
 export default {
-  title: 'features/NotificationsButton',
+  title: 'features/NotificationsButton/NotificationsButton',
   component: NotificationsButton,
   argTypes: {
     backgroundColor: { control: 'color' },

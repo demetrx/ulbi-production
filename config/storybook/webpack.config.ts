@@ -37,7 +37,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
   }));
 
   // eslint-disable-next-line no-param-reassign
-  config.resolve!.alias = { '@': paths.src };
+  config.resolve!.alias = {
+    ...config.resolve!.alias,
+    '@': paths.src,
+  };
 
   return config;
 };

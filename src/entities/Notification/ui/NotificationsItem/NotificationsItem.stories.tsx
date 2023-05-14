@@ -5,7 +5,7 @@ import { Theme } from '@/app/providers/theme';
 import { NotificationsItem } from './NotificationsItem';
 
 export default {
-  title: 'pages/NotificationsItem',
+  title: 'entities/Notification/NotificationsItem',
   component: NotificationsItem,
   argTypes: {},
 } as ComponentMeta<typeof NotificationsItem>;

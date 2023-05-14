@@ -5,7 +5,7 @@ import { Theme } from '@/app/providers/theme';
 import { RatingCard } from './RatingCard';
 
 export default {
-  title: 'pages/RatingCard',
+  title: 'entities/Rating/RatingCard',
   component: RatingCard,
   argTypes: {},
 } as ComponentMeta<typeof RatingCard>;
