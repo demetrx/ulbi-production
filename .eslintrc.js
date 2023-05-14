@@ -39,7 +39,9 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'react/self-closing-comp': 'off',
-    'fsd-arch-validator/relative-imports-within-module': 2,
+    'fsd-arch-validator/relative-imports-within-module': ['error', {
+      alias: '@',
+    }],
     'i18next/no-literal-string': [2, {
       markupOnly: true,
       ignoreAttribute: [
