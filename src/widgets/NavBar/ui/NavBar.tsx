@@ -7,7 +7,7 @@ import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/router/routeConfig';
+import { RoutePath } from '@/app/providers/router/config/routeConfig';
 import { HStack } from '@/shared/ui/Stack';
 
 import { NotificationsButton } from '@/features/NotificationsButton';

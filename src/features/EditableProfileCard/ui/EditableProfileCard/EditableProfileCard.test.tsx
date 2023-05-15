@@ -1,7 +1,8 @@
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderComponent } from '@/shared/config/tests/renderComponent/renderComponent';
-import { profileMock } from '@/entities/Profile/model/mocks/profileMock';
+// eslint-disable-next-line fsd-arch-validator/import-from-public-api
+import { profileMock } from '@/entities/Profile/dev';
 import { $api } from '@/shared/api/api';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';

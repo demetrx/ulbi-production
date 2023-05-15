@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from './ThemeContext';
+import { Theme, ThemeContext } from './ThemeContext';
+import { THEME_LS_KEY } from '@/shared/consts/localStorage';
 
 interface UseThemeResult {
   theme: Theme
@@ -27,7 +28,7 @@ export function useTheme(): UseThemeResult {
     }
 
     setTheme?.(newTheme);
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+    localStorage.setItem(THEME_LS_KEY, newTheme);
   };
 
   return { theme: theme || Theme.LIGHT, toggleTheme };

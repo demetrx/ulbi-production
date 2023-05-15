@@ -5,7 +5,7 @@ import {
   Text, Icon, Card, Avatar, Button, AppLink,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { RoutePath } from '@/shared/config/router/routeConfig';
+import { RoutePath } from '@/app/providers/router/config/routeConfig';
 import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleBlockTextComponent';
 import {
   Article, ArticleBlockText, ArticleBlockType, ArticleView,

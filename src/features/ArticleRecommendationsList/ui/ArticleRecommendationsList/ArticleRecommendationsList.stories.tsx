@@ -3,7 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { articleMock } from '@/entities/Article/model/mocks/articleMock';
+// eslint-disable-next-line fsd-arch-validator/import-from-public-api
+import { articleMock } from '@/entities/Article/dev';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 
 export default {

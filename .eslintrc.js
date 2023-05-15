@@ -41,9 +41,13 @@ module.exports = {
     'react/self-closing-comp': 'off',
     'fsd-arch-validator/relative-imports-within-module': ['error', {
       alias: '@',
-      devFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
+      devFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx'],
     }],
     'fsd-arch-validator/import-from-public-api': ['error', { alias: '@' }],
+    'fsd-arch-validator/layer-imports': ['error', {
+      alias: '@',
+      ignoreImportPatterns: ['**/app/providers/**'],
+    }],
     'i18next/no-literal-string': [2, {
       markupOnly: true,
       ignoreAttribute: [
@@ -88,9 +92,16 @@ module.exports = {
       },
     },
     {
-      files: ['src/shared/**/*.{ts,tsx}', 'src/**/*.stories.{ts,tsx}'],
+      files: ['src/shared/**/*.{ts,tsx}', 'src/**/*.stories.{ts,tsx}', 'src/**/*.async.tsx'],
       rules: {
         'react/jsx-props-no-spreading': 'off',
+      },
+    },
+    {
+      files: ['src/shared/config/**/*'],
+      rules: {
+        'fsd-arch-validator/layer-imports': 'off',
+        'fsd-arch-validator/import-from-public-api': 'off',
       },
     },
     {
@@ -98,9 +109,11 @@ module.exports = {
         'src/**/*.test.{ts,tsx}',
         'src/**/*.stories.{ts,tsx}',
         'config/**/*.{ts,tsx,js}',
+        'scripts/**/*.{ts,tsx,js}',
         'src/shared/lib/tests/**/*.{ts,tsx}',
         'src/shared/config/**/*.{ts,tsx}',
         './webpack.config.ts',
+        './vite.config.ts',
       ],
       rules: {
         'import/no-extraneous-dependencies': 'off',
