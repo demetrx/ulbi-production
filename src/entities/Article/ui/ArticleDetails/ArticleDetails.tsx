@@ -8,10 +8,10 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
   Text, TextAlign, TextSize, Skeleton, Avatar, Icon,
+  HStack, VStack,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { HStack, VStack } from '@/shared/ui/Stack';
 import {
   getArticleDetailsData,
   getArticleDetailsError,

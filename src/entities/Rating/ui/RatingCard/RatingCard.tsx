@@ -4,9 +4,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './RatingCard.module.scss';
 import {
   Button, ButtonTheme, Card, Input, Modal, Text,
+  HStack, VStack, StarRating,
 } from '@/shared/ui';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
 
 interface RatingCardProps {
   className?: string;

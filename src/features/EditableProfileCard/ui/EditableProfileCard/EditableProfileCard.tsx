@@ -5,12 +5,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { Text, TextTheme } from '@/shared/ui';
+import { Text, TextTheme, VStack } from '@/shared/ui';
 import { ProfileCard } from '@/entities/Profile';
 import {
   DynamicModuleLoader, ReducersMap,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
 import {
   EditableProfileCardHeader,
 } from '../EditableProfileCardHeader/EditableProfileCardHeader';

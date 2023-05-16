@@ -2,12 +2,11 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input, Button } from '@/shared/ui';
+import { Input, Button, HStack } from '@/shared/ui';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import {
   DynamicModuleLoader, ReducersMap,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { HStack } from '@/shared/ui/Stack';
 import {
   addCommentFormActions,
   addCommentFormReducer,

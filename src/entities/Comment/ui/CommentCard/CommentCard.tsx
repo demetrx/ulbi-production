@@ -2,9 +2,9 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   Avatar, Text, Skeleton, AppLink,
+  VStack,
 } from '@/shared/ui';
 import { RoutePath } from '@/app/providers/router/config/routeConfig';
-import { VStack } from '@/shared/ui/Stack';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/comment';
 
