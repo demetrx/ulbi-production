@@ -30,47 +30,47 @@ describe('features/EditableProfileCard', () => {
     });
   });
 
-  test('Readonly mode can be switched', () => {
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+  test('Readonly mode can be switched', async () => {
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
     expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
   });
 
-  test('Form should be reset on Cancel btn click', () => {
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+  test('Form should be reset on Cancel btn click', async () => {
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
-    userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
-    userEvent.clear(screen.getByTestId('ProfileCard.lastName'));
+    await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
+    await userEvent.clear(screen.getByTestId('ProfileCard.lastName'));
 
-    userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
-    userEvent.type(screen.getByTestId('ProfileCard.lastName'), 'user');
+    await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
+    await userEvent.type(screen.getByTestId('ProfileCard.lastName'), 'user');
 
     expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue('user');
     expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue('user');
 
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
 
     expect(screen.getByTestId('ProfileCard.firstName')).toHaveValue(profileMock.firstName);
     expect(screen.getByTestId('ProfileCard.lastName')).toHaveValue(profileMock.lastName);
   });
 
   test('Form should not be saved if validation fails', async () => {
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
-    userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
+    await userEvent.clear(screen.getByTestId('ProfileCard.firstName'));
 
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 
     // expect(screen.getByTestId('EditableProfileCard.Error.Title')).toBeInTheDocument(); // WHY ???
   });
 
-  test('Form data should be sent to server on successful edit', () => {
+  test('Form data should be sent to server on successful edit', async () => {
     const mockPutReq = jest.spyOn($api, 'put');
 
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
-    userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
+    await userEvent.type(screen.getByTestId('ProfileCard.firstName'), 'user');
 
-    userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
+    await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 
     expect(mockPutReq).toHaveBeenCalled();
   });
