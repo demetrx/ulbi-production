@@ -67,110 +67,77 @@ More on testing - [testing docs](/docs/tests.md).
 
 ## Linting
 
-ESLint is used for styleguide validation of TypeScript project files and StyleLint for checking of css files.
+As for styleguide validation, ESLint is used for TypeScript files and StyleLint for checking of CSS files.
 
-Besides, for the purposes of stricter control on abidance by architectural principles,
-custom eslint plugin is used *eslint-plugin-fsd-arch-validator*, which has 3 following rules:
-1) path-checker - запрещает использовать абсолютные импорты в рамках одного модуля
-2) layer-imports - проверяет корректность использования слоев с точки зрения FSD
-   (например widgets нельзя использовать в features и entitites)
-3) public-api-imports - разрешает импорт из других модулей только из public api. Имеет auto fix
+Besides, for the purpose of stricter control on abidance by architectural principles,
+custom eslint plugin is used (*eslint-plugin-fsd-arch-validator*), which has 3 following rules:
+1) relative-imports-within-module - prohibits usage of absolute imports within a single module
+2) layer-imports - validates layers usage from the FSD perspective
+   (e.g. widgets may not be used within features и entities)
+3) import-from-public-api - ensures imports from other modules are only through public api
 
 ##### Running linters
-- `npm run lint:ts` - Проверка ts файлов линтером
-- `npm run lint:ts:fix` - Исправление ts файлов линтером
-- `npm run lint:scss` - Проверка scss файлов style линтером
-- `npm run lint:scss:fix` - Исправление scss файлов style линтером
+- `npm run lint:ts` - Checking ts files with eslint
+- `npm run lint:ts:fix` - Fixing ts files with eslint
+- `npm run lint:scss` - Checking scss files with stylelint
+- `npm run lint:scss:fix` - Fixing scss files with stylelint
 
 ----
 ## Storybook
 
-В проекте для каждого компонента описываются стори-кейсы.
-Запросы на сервер мокаются с помощью storybook-addon-mock.
+Every project component has to have story cases described.
+Server requests should be mocked with storybook-addon-mock.
 
-Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
+File with story cases resides near its component .stories.tsx extension
 
-Запустить сторибук можно командой:
+StoryBook runs with:
 - `npm run storybook`
 
-Подробнее о [Storybook](/docs/storybook.md)
-
-Пример:
-
-```typescript jsx
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
-import { Theme } from '@/shared/const/theme';
-
-export default {
-    title: 'shared/Button',
-    component: Button,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Text',
-};
-
-export const Clear = Template.bind({});
-Clear.args = {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR,
-};
-```
-
+More on [Storybook](/docs/storybook.md).
 
 ----
 
-## Конфигурация проекта
+## Project configuration
 
-Для разработки проект содержит 2 конфига:
+Project has 2 configs:
 1. Webpack - ./config/build
-2. vite - vite.config.ts
+2. Vite - vite.config.ts
 
-Оба сборщика адаптированы под основные фичи приложения.
+Both bundlers are adjusted to project main features.
 
-Вся конфигурация хранится в /config
+All configuration resides in /config
 - /config/babel - babel
-- /config/build - конфигурация webpack
-- /config/jest - конфигурация тестовой среды
-- /config/storybook - конфигурация сторибука
+- /config/build - webpack config
+- /config/jest - test environment config
+- /config/storybook - storybook config
 
-В папке `scripts` находятся различные скрипты для рефакторинга\упрощения написания кода\генерации отчетов и тд.
-
-----
-
-## CI pipeline и pre commit хуки
-
-Конфигурация github actions находится в /.github/workflows.
-В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
-
-В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
+`scripts` folder is meant for various scripts for refactoring/alleviation of code-writing/reports generation etc.
 
 ----
 
-### Работа с данными
+## CI pipeline & pre-commit hooks
 
-Взаимодействие с данными осуществляется с помощью redux toolkit.
-По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter
+GitHub actions config is in /.github/workflows.
+CI runs all types of tests, linters, builds the project and storybook
 
-Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
+Pre-commit hooks validates staged files with linters, config is in /.husky
 
-Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
-[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+----
+
+## Data handling
+
+Interaction with data is done with redux toolkit.
+When possible, reused entities should be normalized with EntityAdapter
+
+Server requests are sent with [RTK query](/src/shared/api/rtkApi.ts)
+
+To connect reducers asynchronously (to not include them in main bundle)
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx) is used
 
 ----
 
 
-## Сущности (entities)
+## Entities
 
 - [Article](/src/entities/Article)
 - [Comment](/src/entities/Comment)
@@ -182,7 +149,7 @@ Clear.args = {
 - [Rating](/src/entities/Rating)
 - [User](/src/entities/User)
 
-## Фичи (features)
+## Features
 
 - [addCommentForm](/src/features/addCommentForm)
 - [articleEditForm](/src/features/articleEditForm)
