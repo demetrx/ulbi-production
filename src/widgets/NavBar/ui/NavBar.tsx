@@ -7,11 +7,11 @@ import {
 } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/app/providers/router/config/routeConfig';
 
 import { NotificationsButton } from '@/features/NotificationsButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './NavBar.module.scss';
+import { getRouteAdminPanel } from '@/app/providers/router/config/routeConfig';
 
 interface NavBarProps {
   className?: string;
@@ -39,7 +39,7 @@ export const NavBar = memo(({ className }: NavBarProps) => {
           theme={TextTheme.INVERTED}
         />
         <AppLink
-          to={RoutePath.article_create}
+          to={getRouteAdminPanel()}
           theme={AppLinkTheme.SECONDARY}
           className={cls.createBtn}
         >
