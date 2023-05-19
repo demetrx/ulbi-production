@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-  Text, Icon, Card, Avatar, Button, AppLink,
+  Text, Icon, Card, Avatar, Button, AppLink, AppImg, Skeleton,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleBlockTextComponent';
@@ -47,7 +47,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           </div>
           <Text title={article.title} className={cls.title} />
           {types}
-          <img src={article.img} className={cls.img} alt={article.title} />
+          <AppImg
+            fallback={<Skeleton width="100%" height={250} />}
+            src={article.img}
+            className={cls.img}
+            alt={article.title}
+          />
           {textBlock && <ArticleBlockTextComponent block={textBlock} className={cls.textBlock} />}
           <div className={cls.footer}>
             <AppLink to={getRouteArticleDetails(article.id)}>
@@ -68,7 +73,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
-          <img src={article.img} className={cls.img} alt={article.title} />
+          <AppImg
+            fallback={<Skeleton width={200} height={200} />}
+            src={article.img}
+            className={cls.img}
+            alt={article.title}
+          />
           <Text text={article.createdAt} className={cls.date} />
         </div>
         <div className={cls.infoWrapper}>

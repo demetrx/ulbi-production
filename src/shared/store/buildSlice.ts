@@ -1,4 +1,4 @@
-import { ActionCreator, bindActionCreators, createSlice } from '@reduxjs/toolkit';
+import { bindActionCreators, createSlice } from '@reduxjs/toolkit';
 import { CreateSliceOptions, SliceCaseReducers } from '@reduxjs/toolkit/dist';
 import { useDispatch } from 'react-redux';
 import { useMemo } from 'react';

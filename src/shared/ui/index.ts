@@ -1,3 +1,4 @@
+export * from './AppImg/AppImg';
 export * from './AppLink/AppLink';
 export * from './Avatar/Avatar';
 export * from './Button/Button';
