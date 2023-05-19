@@ -24,7 +24,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     // при импорте не указываем расширение
     resolve: buildResolvers(options),
     // отлов ошибок из конретного файла (не бандла)
-    devtool: isDev ? 'inline-source-map' : undefined,
+    devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
     devServer: isDev ? buildDevServer(options) : undefined,
   };
 }
