@@ -6,7 +6,7 @@ const ForbiddenPage = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Page>
+    <Page dataTestId="ForbiddenPage">
       {t('You don\'t have the required rights to access this page')}
     </Page>
   );

@@ -53,6 +53,7 @@ module.exports = {
       ignoreAttribute: [
         'data-testid',
         'to',
+        'dataTestId',
         'target',
         'justify',
         'align',

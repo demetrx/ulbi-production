@@ -6,7 +6,7 @@ const AboutPage = memo(() => {
   const { t } = useTranslation('about');
 
   return (
-    <Page>
+    <Page dataTestId="AboutPage">
       {t('About us')}
     </Page>
   );

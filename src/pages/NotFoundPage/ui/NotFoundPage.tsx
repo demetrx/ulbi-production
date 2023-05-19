@@ -8,7 +8,7 @@ export const NotFoundPage = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Page className={classNames(cls.notFoundPage)}>
+    <Page className={classNames(cls.notFoundPage)} dataTestId="NotFoundPage">
       {t('Page not found')}
     </Page>
   );

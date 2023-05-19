@@ -9,15 +9,18 @@ import { useAppDispatch, useThrottle } from '@/shared/lib/hooks';
 import { getUIScrollByPath, UIActions } from '@/features/UI';
 import { StateSchema } from '@/app/providers/store';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps{
   className?: string;
   children: ReactNode;
   onScrollEnd?: () => void;
 }
 
 export const Page = (props: PageProps) => {
-  const { className, children, onScrollEnd } = props;
+  const {
+    className, children, onScrollEnd, dataTestId,
+  } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -41,6 +44,7 @@ export const Page = (props: PageProps) => {
 
   return (
     <main
+      data-testid={dataTestId || 'page'}
       onScroll={handleScroll}
       ref={wrapperRef}
       className={classNames(cls.page, {}, [className])}
