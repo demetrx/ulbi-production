@@ -82,7 +82,7 @@ jobs:
         uses: actions/configure-pages@v2
         if: always()
       - name: upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v1
         if: always()
         with:
           path: '.loki'
