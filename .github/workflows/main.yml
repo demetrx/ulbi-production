@@ -54,7 +54,7 @@ concurrency:
 jobs:
   build-n-ui-testing:
     runs-on: ubuntu-latest
-    concurrency: ci-${{ github ref }}
+    concurrency: ci-${{ github.ref }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
