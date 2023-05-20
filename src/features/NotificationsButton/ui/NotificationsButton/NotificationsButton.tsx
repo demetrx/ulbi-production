@@ -5,7 +5,7 @@ import {
 } from '@/shared/ui';
 import { NotificationsList } from '@/entities/Notification';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
-import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { useDevice } from '@/shared/lib/hooks';
 import cls from './NotificationsButton.module.scss';
 
 interface NotificationsButtonProps {

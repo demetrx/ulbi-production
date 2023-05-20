@@ -1,6 +1,5 @@
-import { } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/store';
-import { getCounter } from './getCounter';
+import { getCounterValue } from './getCounter';
 
 describe('getCounter', () => {
   test('returns counter value', () => {
@@ -8,6 +7,6 @@ describe('getCounter', () => {
       counter: { value: 10 },
     };
 
-    expect(getCounter(state as StateSchema)).toEqual({ value: 10 });
+    expect(getCounterValue(state as StateSchema)).toEqual({ value: 10 });
   });
 });
