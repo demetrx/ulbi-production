@@ -1,4 +1,3 @@
-import { addDecorator } from '@storybook/react';
 import { StyleDecorator } from '../../src/shared/config/storybook/decorators/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
 import { Theme } from '../../src/app/providers/theme';
@@ -12,10 +11,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
-
 };
 
-addDecorator(StyleDecorator);
-addDecorator(ThemeDecorator(Theme.LIGHT));
-addDecorator(RouterDecorator);
-// addDecorator(TranslationDecorator);
+export const decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator];

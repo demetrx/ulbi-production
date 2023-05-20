@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 // eslint-disable-next-line fsd-arch-validator/import-from-public-api
 import { articleMock } from '@/entities/Article/dev';
@@ -13,7 +12,7 @@ export default {
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-  decorators: [StoreDecorator({}), withMock],
+  decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => <ArticleRecommendationsList {...args} />;
