@@ -537,6 +537,19 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Javascript news СВЕЖАЯ",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.04.2022",
+      "userID": "1",
+      "category": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "WunPYbM"
     }
   ],
   "comments": [
@@ -557,42 +570,6 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
-    },
-    {
-      "text": "My suppa comment",
-      "userId": "1",
-      "articleId": "1",
-      "id": "b0yvT50"
-    },
-    {
-      "text": "Heeey maan!",
-      "userId": "1",
-      "articleId": "2",
-      "id": "3xjDspc"
-    },
-    {
-      "text": "Good article, bro!",
-      "userId": "1",
-      "articleId": "3",
-      "id": "BmuG5yf"
-    },
-    {
-      "text": "brooo",
-      "userId": "1",
-      "articleId": "18",
-      "id": "362vo-0"
-    },
-    {
-      "text": "ibib iuiuh",
-      "userId": "1",
-      "articleId": "7",
-      "id": "w9MPhTO"
-    },
-    {
-      "text": "broooo",
-      "userId": "1",
-      "articleId": "7",
-      "id": "ZUOmqsp"
     }
   ],
   "users": [
@@ -646,6 +623,17 @@
       "city": "Krakow",
       "username": "user",
       "avatar": "https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg"
+    },
+    {
+      "id": "4",
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 100,
+      "currency": "USD",
+      "country": "Poland",
+      "city": "Krakow",
+      "username": "test-user",
+      "avatar": "https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA"
     }
   ],
   "article-ratings": [
@@ -662,13 +650,6 @@
       "feedback": "Bad article",
       "userId": "1",
       "articleId": "2"
-    },
-    {
-      "rate": 4,
-      "articleId": "3",
-      "userId": "1",
-      "feedback": "abc",
-      "id": "Z_SJhFW"
     }
   ],
   "profile-ratings": [
