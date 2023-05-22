@@ -9,4 +9,10 @@ describe('Going to articles list page', () => {
     cy.getByTestId('ArticleList').should('exist');
     cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
   });
+
+  it('articles load successfully (with stubs)', () => {
+    cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+    cy.getByTestId('ArticleList').should('exist');
+    cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+  });
 });
