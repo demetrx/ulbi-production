@@ -1,0 +1,22 @@
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/ulbi-production/html;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location ~ ^/api/(.*)$ {
+                proxy_pass              $scheme://83.229.87.70:8000$1$is_args$args;
+                proxy_redirect          off;
+                proxy_set_header        Host            $host;
+                proxy_set_header        X-Real-IP       $remote_addr;
+                proxy_set_header        X-Forwarded-for $proxy_add_x_forwarded_for;
+        }
+
+        location / {
+                try_files $uri $uri/ /index.html;
+        }
+}
