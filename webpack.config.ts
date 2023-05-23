@@ -1,7 +1,19 @@
 import path from 'path';
 import webpack from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { BuildEnv, BuildPaths } from './config/build/types/config';
+import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
+
+function getApiUrl(mode: BuildMode, apiURL?: string) {
+  if (apiURL) {
+    return apiURL;
+  }
+
+  if (mode === 'production') {
+    return '/api';
+  }
+
+  return 'http://localhost:8000';
+}
 
 export default (env: BuildEnv) => {
   const paths: BuildPaths = {
@@ -16,7 +28,7 @@ export default (env: BuildEnv) => {
   const mode = env.mode || 'development';
   const PORT = env.port || 3000;
   const analyze = !!env.analyze;
-  const apiURL = env.apiURL || 'http://localhost:8000';
+  const apiURL = getApiUrl(mode, env.apiURL);
 
   const isDev = mode === 'development';
   const project = 'frontend';

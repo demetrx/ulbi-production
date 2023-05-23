@@ -9,7 +9,7 @@
     "start:dev:server": "node ./json-server/index.js",
     "start:dev": "concurrently \"npm start\" \"npm run start:dev:server\"",
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
-    "build:prod": "webpack --env mode=production apiURL=https://ulbi-server-oax4m2f2s-demetrxx.vercel.app/",
+    "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
