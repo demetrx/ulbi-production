@@ -50,6 +50,8 @@ server.use(router);
 
 const httpsServer = https.createServer(options, server);
 
-httpsServer.listen(403, () => {
-  console.log('Server is running on 8000 port');
+const PORT = 8443;
+
+httpsServer.listen(PORT, () => {
+  console.log(`Server is running on ${PORT} port`);
 });
