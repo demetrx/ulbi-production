@@ -4,13 +4,20 @@ module.exports = {
     es2021: true,
     jest: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended', 'plugin:cypress/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb', 'plugin:i18next/recommended',
+    'plugin:storybook/recommended',
+    'plugin:cypress/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-arch-validator', 'cypress'],
+  plugins: [
+    'react', '@typescript-eslint', 'i18next', 'react-hooks', 'fsd-arch-validator', 'cypress',
+  ],
   rules: {
     'react/jsx-filename-extension': ['error', {
       extensions: ['.jsx', '.tsx'],
@@ -24,6 +31,7 @@ module.exports = {
     'react/function-component-definition': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'react/no-unstable-nested-components': 'warn',
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', {
       argsIgnorePattern: '^_',

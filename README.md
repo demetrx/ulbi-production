@@ -124,7 +124,7 @@ Pre-commit hooks validates staged files with linters, config is in /.husky
 
 ----
 
-## Data handling
+## Working with data
 
 Interaction with data is done with redux toolkit.
 When possible, reused entities should be normalized with EntityAdapter
@@ -133,6 +133,24 @@ Server requests are sent with [RTK query](/src/shared/api/rtkApi.ts)
 
 To connect reducers asynchronously (to not include them in main bundle)
 [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx) is used
+
+----
+
+## Working with feature-flags
+
+Using feature-flags is done only with "toggleFeature" helper function.
+
+It accepts config object with following properties:
+
+ - name: string - name of the feature
+ - on: function - function called after feature is turned on
+ - off: function - function called after feature is turned off
+
+
+For automatic feature removal, use "remove-feature.ts" script,
+that takes following arguments:
+1. Name of the feature-flag to remove
+2. State to leave after removal (on/off)
 
 ----
 
