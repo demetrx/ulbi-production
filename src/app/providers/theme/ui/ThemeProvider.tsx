@@ -9,14 +9,18 @@ interface ThemeProviderProps {
   children: ReactNode
 }
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
-  const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
-  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+  const { theme: defaultTheme } = useJsonSettings();
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.LIGHT);
+  const [isThemeInitialized, setIsThemeInitialized] = useState(false);
 
   const defaultProps = useMemo(() => ({ theme, setTheme }), [theme]);
 
-  // useEffect(() => {
-  //   setTheme(defaultTheme);
-  // }, [defaultTheme]);
+  useEffect(() => {
+    if (isThemeInitialized || !defaultTheme) return;
+
+    setTheme(defaultTheme);
+    setIsThemeInitialized(true);
+  }, [defaultTheme, isThemeInitialized]);
 
   useEffect(() => {
     document.body.classList.add(theme);

@@ -4,6 +4,7 @@ import { User } from '../types/UserSchema';
 import type { UserSchema } from '../types/UserSchema';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
+import { initAuthData } from '../services/initAuthData';
 
 const initialState: UserSchema = {
   _initialized: false,
@@ -16,15 +17,7 @@ export const userSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
-    },
-    initAuthData: (state) => {
-      const user = localStorage.getItem(USER_LS_KEY);
-      if (user) {
-        const parsedUser = JSON.parse(user) as User;
-        state.authData = parsedUser;
-        setFeatureFlags(parsedUser.features);
-      }
-      state._initialized = true;
+      localStorage.setItem(USER_LS_KEY, JSON.stringify(action.payload.id));
     },
     logout: (state) => {
       const user = localStorage.getItem(USER_LS_KEY);
@@ -40,6 +33,14 @@ export const userSlice = createSlice({
         if (!state.authData) return;
 
         state.authData.jsonSettings = action.payload;
+      })
+      .addCase(initAuthData.fulfilled, (state, action) => {
+        state.authData = action.payload;
+        setFeatureFlags(action.payload.features);
+        state._initialized = true;
+      })
+      .addCase(initAuthData.rejected, (state) => {
+        state._initialized = true;
       });
   },
 });
