@@ -3,6 +3,7 @@ import { USER_LS_KEY } from '@/shared/consts/localStorage';
 import { User } from '../types/UserSchema';
 import type { UserSchema } from '../types/UserSchema';
 import { setFeatureFlags } from '@/shared/lib/features';
+import { saveJsonSettings } from '../services/saveJsonSettings';
 
 const initialState: UserSchema = {
   _initialized: false,
@@ -32,6 +33,14 @@ export const userSlice = createSlice({
         localStorage.removeItem(USER_LS_KEY);
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(saveJsonSettings.fulfilled, (state, action) => {
+        if (!state.authData) return;
+
+        state.authData.jsonSettings = action.payload;
+      });
   },
 });
 
