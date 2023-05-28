@@ -16,6 +16,7 @@ import cls from './ArticlesPage.module.scss';
 import {
   fetchNextArticlesPage,
 } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { ArticlePageGreeting } from '@/features/ArticlePageGreeting';
 
 const reducers: ReducersMap = { articlesPage: articlesPageReducer };
 
@@ -36,6 +37,7 @@ const ArticlesPage = () => {
       <Page onScrollEnd={loadNextPart} className={cls.articlesPage} dataTestId="ArticlesPage">
         <ArticlesPageFilters />
         <ArticleInfiniteList className={cls.list} />
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
