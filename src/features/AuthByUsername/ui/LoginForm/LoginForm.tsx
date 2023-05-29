@@ -71,7 +71,9 @@ const LoginForm = memo((props: LoginFormProps) => {
           theme={ButtonTheme.OUTLINED}
           className={cls.loginBtn}
         >
-          {t('Log In')}
+          <Text text="" />
+          <Text text="" />
+          <Text text="" />
         </Button>
       </div>
     </DynamicModuleLoader>
