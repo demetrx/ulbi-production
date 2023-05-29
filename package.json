@@ -26,7 +26,8 @@
     "storybook:build": "build-storybook -c config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createFSDSlice/index.js",
-    "postinstall": "ts-node ./scripts/build/clearCache.ts"
+    "postinstall": "ts-node ./scripts/build/clearCache.ts",
+    "remove-feature": "ts-node ./scripts/refactoring/remove-feature.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

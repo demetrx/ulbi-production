@@ -7,7 +7,7 @@ interface ToggleFeatureOptions<Return> {
   off: () => Return
 }
 
-export function toggleFeature<Return>(options: ToggleFeatureOptions<Return>): Return {
+export function toggleFnFeature<Return>(options: ToggleFeatureOptions<Return>): Return {
   const { name, on, off } = options;
   const isEnabled = getFeatureFlag(name);
 

@@ -15,7 +15,7 @@ import {
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
-import { toggleFeature } from '@/shared/lib/features';
+import { ToggleFeature } from '@/shared/lib/features';
 
 const reducers: ReducersMap = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -29,19 +29,17 @@ const ArticleDetailsPage = () => {
     return null;
   }
 
-  const articleRating = toggleFeature({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Article rating coming soon!')}</Card>,
-  });
-
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
         <VStack gap={16} max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {articleRating}
+          <ToggleFeature
+            feature="isArticleRatingEnabled"
+            on={<ArticleRating articleId={id} />}
+            off={<Card>{t('Article rating coming soon!')}</Card>}
+          />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>

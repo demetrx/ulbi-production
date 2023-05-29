@@ -10,6 +10,7 @@ import { getUIScrollByPath, UIActions } from '@/features/UI';
 import { StateSchema } from '@/app/providers/store';
 import cls from './Page.module.scss';
 import { TestProps } from '@/shared/types/tests';
+import { toggleFnFeature } from '@/shared/lib/features';
 
 interface PageProps extends TestProps{
   className?: string;
@@ -47,7 +48,11 @@ export const Page = (props: PageProps) => {
       data-testid={dataTestId || 'page'}
       onScroll={handleScroll}
       ref={wrapperRef}
-      className={classNames(cls.page, {}, [className])}
+      className={classNames(toggleFnFeature({
+        name: 'isAppRedesigned',
+        on: () => cls.pageRedesigned,
+        off: () => cls.page,
+      }), {}, [className])}
     >
       {children}
       {onScrollEnd && <div ref={triggerRef} />}

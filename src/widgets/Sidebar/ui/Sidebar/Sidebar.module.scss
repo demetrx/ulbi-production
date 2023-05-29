@@ -7,6 +7,13 @@
   flex-shrink: 0;
 }
 
+.sidebar-redesigned {
+  background: var(--light-bg-redesigned);
+  width: 220px;
+  height: 100%;
+  border-radius: 32px;
+}
+
 .switchers {
   position: absolute;
   bottom: 20px;
@@ -42,4 +49,8 @@
   .lang {
     margin-left: 0;
   }
+}
+
+.app-logo {
+  padding-top: 20px;
 }

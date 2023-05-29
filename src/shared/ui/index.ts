@@ -1,5 +1,6 @@
 export * from './AppImg/AppImg';
 export * from './AppLink/AppLink';
+export * from './AppLogo/AppLogo';
 export * from './Avatar/Avatar';
 export * from './Button/Button';
 export * from './Card/Card';

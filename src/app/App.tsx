@@ -7,6 +7,9 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { getUserInitialized, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks';
 import { PageLoader } from '@/widgets/PageLoader';
+import { ToggleFeature } from '@/shared/lib/features';
+import { Loader } from '@/shared/ui';
+import { MainLayout } from '@/shared/layouts';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,17 +22,34 @@ function App() {
   if (!initialized) return <PageLoader />;
 
   return (
-    <div className={classNames('app', {}, [])}>
-      <Suspense fallback="">
-        <NavBar />
-
-        <div className="page-content">
-          <Sidebar />
-
-          {initialized && <AppRouter />}
+    <ToggleFeature
+      feature="isAppRedesigned"
+      on={(
+        <div className={classNames('app', {}, ['redesigned'])}>
+          <Suspense fallback={<Loader />}>
+            <MainLayout
+              header={<NavBar />}
+              content={initialized && <AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>123</div>}
+            />
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      )}
+      off={(
+        <div className={classNames('app', {}, [])}>
+          <Suspense fallback={<Loader />}>
+            <NavBar />
+
+            <div className="page-content">
+              <Sidebar />
+
+              {initialized && <AppRouter />}
+            </div>
+          </Suspense>
+        </div>
+    )}
+    />
   );
 }
 

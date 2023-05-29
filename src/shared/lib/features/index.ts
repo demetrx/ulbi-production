@@ -1,2 +1,3 @@
 export { getFeatureFlag, setFeatureFlags } from './setGetFeatures';
-export { toggleFeature } from './toggleFeature';
+export { toggleFnFeature } from './toggleFnFeature';
+export { ToggleFeature } from './ToggleFeature';

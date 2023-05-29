@@ -12,6 +12,7 @@ import { NotificationsButton } from '@/features/NotificationsButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import cls from './NavBar.module.scss';
 import { getRouteAdminPanel } from '@/app/providers/router/config/routeConfig';
+import { ToggleFeature } from '@/shared/lib/features';
 
 interface NavBarProps {
   className?: string;
@@ -32,24 +33,38 @@ export const NavBar = memo(({ className }: NavBarProps) => {
 
   if (authData) {
     return (
-      <header className={classNames(cls.navBar, {}, [className])}>
-        <Text
-          className={cls.appName}
-          title={t('IT TODAY')}
-          theme={TextTheme.INVERTED}
-        />
-        <AppLink
-          to={getRouteAdminPanel()}
-          theme={AppLinkTheme.SECONDARY}
-          className={cls.createBtn}
-        >
-          {t('Create Article')}
-        </AppLink>
-        <HStack gap={16} className={cls.actions}>
-          <NotificationsButton />
-          <AvatarDropdown />
-        </HStack>
-      </header>
+      <ToggleFeature
+        feature="isAppRedesigned"
+        on={(
+          <header className={classNames(cls.navBarRedesigned, {}, [className])}>
+            <HStack gap={16} className={cls.actions}>
+              <NotificationsButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+        )}
+        off={(
+          <header className={classNames(cls.navBar, {}, [className])}>
+            <Text
+              className={cls.appName}
+              title={t('IT TODAY')}
+              theme={TextTheme.INVERTED}
+            />
+            <AppLink
+              to={getRouteAdminPanel()}
+              theme={AppLinkTheme.SECONDARY}
+              className={cls.createBtn}
+            >
+              {t('Create Article')}
+            </AppLink>
+            <HStack gap={16} className={cls.actions}>
+              <NotificationsButton />
+              <AvatarDropdown />
+            </HStack>
+          </header>
+)}
+      />
+
     );
   }
 

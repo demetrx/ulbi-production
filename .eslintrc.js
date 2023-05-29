@@ -6,7 +6,8 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
-    'airbnb', 'plugin:i18next/recommended',
+    'airbnb',
+    'plugin:i18next/recommended',
     'plugin:storybook/recommended',
     'plugin:cypress/recommended',
   ],
@@ -64,6 +65,7 @@ module.exports = {
         'data-testid',
         'to',
         'dataTestId',
+        'feature',
         'target', 'justify', 'align', 'direction', 'role', 'as', 'defaultValue', 'border'],
     }],
   },
@@ -104,7 +106,16 @@ module.exports = {
       'fsd-arch-validator/import-from-public-api': 'off',
     },
   }, {
-    files: ['src/**/*.test.{ts,tsx}', 'src/**/*.stories.{ts,tsx}', 'config/**/*.{ts,tsx,js}', 'scripts/**/*.{ts,tsx,js}', 'src/shared/lib/tests/**/*.{ts,tsx}', 'src/shared/config/**/*.{ts,tsx}', './webpack.config.ts', './vite.config.ts'],
+    files: [
+      'src/**/*.test.{ts,tsx}',
+      'src/**/*.stories.{ts,tsx}',
+      'config/**/*.{ts,tsx,js}',
+      'scripts/**/*.{ts,tsx,js}',
+      'src/shared/lib/tests/**/*.{ts,tsx}',
+      'src/shared/config/**/*.{ts,tsx}',
+      './webpack.config.ts',
+      './vite.config.ts',
+    ],
     rules: {
       'import/no-extraneous-dependencies': 'off',
     },
