@@ -1,23 +1,35 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleListItem } from './ArticleListItem';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+
+export default {
+  title: 'entities/Article/ArticleListItem',
+  component: ArticleListItem,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof ArticleListItem>;
+
+const Template: ComponentStory<typeof ArticleListItem> = (args) => (
+  <ArticleListItem {...args} />
+);
 
 const article = {
   id: '1',
-  title: 'Javascript news',
-  subtitle: 'Что нового в JS за 2023 год?',
+  title: 'Javascript news asfasjf asfjkask f',
+  subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
-  createdAt: '8.04.2023',
-  category: [
-    'IT',
-  ],
+  createdAt: '26.02.2022',
   user: {
     id: '1',
-    username: 'Super Mario',
-    avatar: 'https://ichef.bbci.co.uk/news/976/cpsprodpb/2B87/production/_90934111_1-1.jpg',
+    username: 'Ulbi tv',
+    avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
   },
+  type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
   blocks: [
     {
       id: '1',
@@ -79,22 +91,15 @@ const article = {
     },
   ],
 } as Article;
-export default {
-  title: 'entities/Article/ArticleListItem',
-  component: ArticleListItem,
-  argTypes: {},
-} as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
-
-export const List = Template.bind({});
-List.args = {
-  view: ArticleView.LIST,
+export const Big = Template.bind({});
+Big.args = {
+  view: ArticleView.BIG,
   article,
 };
 
-export const Tile = Template.bind({});
-Tile.args = {
-  view: ArticleView.TILE,
+export const Small = Template.bind({});
+Small.args = {
+  view: ArticleView.SMALL,
   article,
 };

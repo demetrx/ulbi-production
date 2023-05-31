@@ -1,45 +1,53 @@
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui';
+import { memo, useCallback } from 'react';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Currency } from '../../model/types/currency';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CurrencySelectProps {
-  className?: string;
-  value?: Currency
-  onChange?: (value?: Currency) => void
-  readOnly?: boolean
+    className?: string;
+    value?: Currency;
+    onChange?: (value: Currency) => void;
+    readonly?: boolean;
 }
 
-const options = Object.values(Currency).map((val) => ({ value: val, content: val }));
+const options = [
+  { value: Currency.RUB, content: Currency.RUB },
+  { value: Currency.EUR, content: Currency.EUR },
+  { value: Currency.USD, content: Currency.USD },
+];
 
-export const CurrencySelect = memo((props: CurrencySelectProps) => {
-  const {
-    className, value, onChange, readOnly,
-  } = props;
+export const CurrencySelect = memo(
+  ({
+    className, value, onChange, readonly,
+  }: CurrencySelectProps) => {
+    const { t } = useTranslation();
 
-  const { t } = useTranslation();
+    const onChangeHandler = useCallback(
+      (value: string) => {
+        onChange?.(value as Currency);
+      },
+      [onChange],
+    );
 
-  return (
-    <ListBox
-      className={className}
-      onChange={onChange as (value: any) => void}
-      value={value}
-      items={options}
-      defaultValue={t('Choose currency')}
-      readonly={readOnly}
-      direction="top right"
-      label={t('Choose currency')}
-    />
-  );
+    const props = {
+      className,
+      value,
+      defaultValue: t('Укажите валюту'),
+      label: t('Укажите валюту'),
+      items: options,
+      onChange: onChangeHandler,
+      readonly,
+      direction: 'top right' as const,
+    };
 
-  // return (
-  //   <Select
-  //     className={className}
-  //     label={t('Choose currency')}
-  //     value={value}
-  //     options={options}
-  //     readOnly={readOnly}
-  //     onChange={onChange as (value: string) => void}
-  //   />
-  // );
-});
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ListBox {...props} />}
+        off={<ListBoxDeprecated {...props} />}
+      />
+    );
+  },
+);

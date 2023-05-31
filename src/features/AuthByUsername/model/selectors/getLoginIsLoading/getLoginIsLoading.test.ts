@@ -1,19 +1,17 @@
-import { } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/store';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginIsLoading } from './getLoginIsLoading';
 
 describe('getLoginIsLoading.test', () => {
-  test('returns isLoading', () => {
+  test('should return true', () => {
     const state: DeepPartial<StateSchema> = {
-      loginForm: { isLoading: true },
+      loginForm: {
+        isLoading: true,
+      },
     };
-
-    expect(getLoginIsLoading(state as StateSchema)).toBe(true);
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(true);
   });
-
-  test('works with empty state', () => {
+  test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-
-    expect(getLoginIsLoading(state as StateSchema)).toBe(false);
+    expect(getLoginIsLoading(state as StateSchema)).toEqual(false);
   });
 });

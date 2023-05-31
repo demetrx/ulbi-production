@@ -1,36 +1,29 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { userActions, UserType } from '@/entities/User';
-import { ThunkConfig } from '@/app/providers/store';
+import { User, userActions } from '@/entities/User';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 interface LoginByUsernameProps {
-  username: string
-  password: string
+    username: string;
+    password: string;
 }
 
-// enum LoginErrors {
-//   INCORRECT_DATA = '',
-//   SERVER_ERROR= '',
-// }
+export const loginByUsername = createAsyncThunk<
+    User,
+    LoginByUsernameProps,
+    ThunkConfig<string>
+>('login/loginByUsername', async (authData, thunkApi) => {
+  const { extra, dispatch, rejectWithValue } = thunkApi;
 
-const loginByUsername = createAsyncThunk<UserType, LoginByUsernameProps, ThunkConfig<string>>(
-  'login/loginByUsername',
-  async (authData, thunkAPI) => {
-    const { extra, rejectWithValue, dispatch } = thunkAPI;
+  try {
+    const response = await extra.api.post<User>('/login', authData);
 
-    try {
-      const response = await extra.api.post<UserType>('/login', authData);
-
-      if (!response.data) {
-        throw new Error();
-      }
-
-      dispatch(userActions.setAuthData(response.data));
-
-      return response.data;
-    } catch (e) {
-      return rejectWithValue(('error'));
+    if (!response.data) {
+      throw new Error();
     }
-  },
-);
 
-export { loginByUsername };
+    dispatch(userActions.setAuthData(response.data));
+    return response.data;
+  } catch (e) {
+    return rejectWithValue('error');
+  }
+});

@@ -1,29 +1,29 @@
-import React, { memo } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import { ArticleList } from '@/entities/Article';
-import { Text } from '@/shared/ui';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import {
   getArticlesPageError,
   getArticlesPageIsLoading,
   getArticlesPageView,
-} from '../../model/selectors/articles';
+} from '../../model/selectors/articlesPageSelectors';
 
 interface ArticleInfiniteListProps {
-  className?: string;
+    className?: string;
 }
 
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const { className } = props;
-  const { t } = useTranslation();
   const articles = useSelector(getArticles.selectAll);
-  const view = useSelector(getArticlesPageView);
   const isLoading = useSelector(getArticlesPageIsLoading);
+  const view = useSelector(getArticlesPageView);
   const error = useSelector(getArticlesPageError);
+  const { t } = useTranslation();
 
   if (error) {
-    return <Text title={t('Error when loading articles')} />;
+    return <Text text={t('Ошибка при загрузке статей')} />;
   }
 
   return (
@@ -31,7 +31,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
       isLoading={isLoading}
       view={view}
       articles={articles}
-      className={className || ''}
+      className={className}
     />
   );
 });

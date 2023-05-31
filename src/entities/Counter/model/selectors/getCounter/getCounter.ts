@@ -1,6 +1,3 @@
-import { StateSchema } from '@/app/providers/store';
-import { buildSelector } from '@/shared/store';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
-export const [useCounterValue, getCounterValue] = buildSelector(
-  (state: StateSchema) => state.counter,
-);
+export const getCounter = (state: StateSchema) => state.counter;

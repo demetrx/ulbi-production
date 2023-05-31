@@ -1,7 +1,0 @@
-export enum ValidateProfileError {
-  WRONG_USER_DATA = 'WRONG_USER_DATA',
-  WRONG_AGE = 'WRONG_AGE',
-  WRONG_COUNTRY = 'WRONG_COUNTRY',
-  NO_DATA = 'NO_DATA',
-  SERVER_ERROR = 'SERVER_ERROR',
-}

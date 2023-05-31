@@ -5,18 +5,19 @@ const initialState: UISchema = {
   scroll: {},
 };
 
-const UISlice = createSlice({
+export const uiSlice = createSlice({
   name: 'ui',
   initialState,
   reducers: {
-    setScrollPosition: (state, action: PayloadAction<{path: string, position: number}>) => {
-      const { path, position } = action.payload;
-      state.scroll[path] = position;
+    setScrollPosition: (
+      state,
+      { payload }: PayloadAction<{ path: string; position: number }>,
+    ) => {
+      state.scroll[payload.path] = payload.position;
     },
   },
 });
 
-export const {
-  actions: UIActions,
-  reducer: UIReducer,
-} = UISlice;
+// Action creators are generated for each case reducer function
+export const { actions: uiActions } = uiSlice;
+export const { reducer: uiReducer } = uiSlice;

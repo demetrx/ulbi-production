@@ -4,33 +4,43 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import avatar from '@/shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
   title: 'entities/ProfileCard',
   component: ProfileCard,
-  argTypes: {},
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+  <ProfileCard {...args} />
+);
 
-export const Primary = Template.bind({});
-Primary.args = {
+const primaryArgs = {
   data: {
-    firstName: 'Dmytro',
-    lastName: 'Bielousov',
-    age: 20,
-    currency: Currency.UAH,
-    country: Country.Ukraine,
-    city: 'Kyiv',
     username: 'admin',
+    age: 22,
+    country: Country.Ukraine,
+    lastname: 'ulbi tv',
+    first: 'asd',
+    city: 'asf',
+    currency: Currency.USD,
     avatar,
-    // avatar: 'https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA',
   },
 };
 
+export const Primary = Template.bind({});
+Primary.args = primaryArgs;
+
+export const PrimaryRedesigned = Template.bind({});
+PrimaryRedesigned.args = primaryArgs;
+PrimaryRedesigned.decorators = [NewDesignDecorator];
+
 export const WithError = Template.bind({});
 WithError.args = {
-  error: 'error',
+  error: 'true',
 };
 
 export const Loading = Template.bind({});

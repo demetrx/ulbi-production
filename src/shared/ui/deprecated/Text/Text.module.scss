@@ -2,17 +2,17 @@
   color: var(--primary-color);
 }
 
-.description {
+.text {
   color: var(--secondary-color);
 }
 
 .error {
   .title {
-    color: var(--color-red-light);
+    color: var(--red-light);
   }
 
-  .description {
-    color: var(--color-red-dark);
+  .text {
+    color: var(--red-dark);
   }
 }
 
@@ -21,7 +21,7 @@
     color: var(--inverted-primary-color);
   }
 
-  .description {
+  .text {
     color: var(--inverted-secondary-color);
   }
 }
@@ -38,32 +38,32 @@
   text-align: center;
 }
 
-.size-s {
+.size_s {
   .title {
     font: var(--font-m);
   }
 
-  .description {
+  .text {
     font: var(--font-s);
   }
 }
 
-.size-m {
+.size_m {
   .title {
     font: var(--font-l);
   }
 
-  .description {
+  .text {
     font: var(--font-m);
   }
 }
 
-.size-l {
+.size_l {
   .title {
     font: var(--font-xl);
   }
 
-  .description {
+  .text {
     font: var(--font-l);
   }
 }

@@ -1,26 +1,37 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui';
+import { Button } from '@/shared/ui/deprecated/Button';
 import { useCounterActions } from '../model/slice/counterSlice';
-import { useCounterValue } from '../model/selectors/getCounter/getCounter';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
-export const Counter: FC = () => {
+export const Counter = () => {
   const counterValue = useCounterValue();
   const { t } = useTranslation();
-  const { increment, decrement } = useCounterActions();
-  const handleIncrement = () => {
+  const { decrement, increment, add } = useCounterActions();
+
+  const handleInc = () => {
     increment();
   };
 
-  const handleDecrement = () => {
+  const handleDec = () => {
     decrement();
+  };
+
+  const handleAddFive = () => {
+    add(5);
   };
 
   return (
     <div>
-      <h1 data-testid="value-title">{counterValue.value}</h1>
-      <Button onClick={handleIncrement} data-testid="increment-btn">{t('increment')}</Button>
-      <Button onClick={handleDecrement} data-testid="decrement-btn">{t('decrement')}</Button>
+      <h1 data-testid="value-title">{counterValue}</h1>
+      <Button onClick={handleAddFive} data-testid="increment-btn5">
+        {t('add5')}
+      </Button>
+      <Button onClick={handleInc} data-testid="increment-btn">
+        {t('increment')}
+      </Button>
+      <Button data-testid="decrement-btn" onClick={handleDec}>
+        {t('decrement')}
+      </Button>
     </div>
   );
 };

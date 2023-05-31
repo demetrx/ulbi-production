@@ -1,7 +1,5 @@
-import { RouteProps } from 'react-router-dom';
 import { MainPage } from '@/pages/MainPage';
 import { AboutPage } from '@/pages/AboutPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
 import { ArticlesPage } from '@/pages/ArticlesPage';
 import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
@@ -9,40 +7,31 @@ import { ArticleEditPage } from '@/pages/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
-
-export type AppRoutesProps = RouteProps & {
-  authOnly?: boolean
-  roles?: UserRole[]
-}
-export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
-  PROFILE = 'profile',
-  ARTICLES = 'articles',
-  ARTICLE_DETAILS = 'article_details',
-  ARTICLE_CREATE = 'article_create',
-  ARTICLE_EDIT = 'article_edit',
-  ADMIN_PANEL = 'admin_panel',
-  FORBIDDEN = 'forbidden',
-
-  // last
-  NOT_FOUND = 'not_found',
-}
-
-export const getRouteMain = () => '/';
-export const getRouteAbout = () => '/about';
-export const getRouteProfile = (id: string) => `/profile/${id}`;
-export const getRouteArticles = () => '/articles';
-export const getRouteArticleCreate = () => '/articles/new';
-export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
-export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
-export const getRouteAdminPanel = () => '/admin';
-export const getRouteForbidden = () => '/forbidden';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import {
+  AppRoutes,
+  getRouteAbout,
+  getRouteAdmin,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteForbidden,
+  getRouteArticles,
+  getRouteMain,
+  getRouteProfile,
+  getRouteSettings,
+} from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/router';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {
     path: getRouteMain(),
     element: <MainPage />,
+  },
+  [AppRoutes.SETTINGS]: {
+    path: getRouteSettings(),
+    element: <SettingsPage />,
   },
   [AppRoutes.ABOUT]: {
     path: getRouteAbout(),
@@ -74,7 +63,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     authOnly: true,
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: getRouteAdminPanel(),
+    path: getRouteAdmin(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.MANAGER, UserRole.ADMIN],

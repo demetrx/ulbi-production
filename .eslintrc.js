@@ -62,8 +62,12 @@ module.exports = {
     'i18next/no-literal-string': [2, {
       markupOnly: true,
       ignoreAttribute: [
+        'wrap',
         'data-testid',
+        'size',
+        'variant',
         'to',
+        'color',
         'dataTestId',
         'feature',
         'target', 'justify', 'align', 'direction', 'role', 'as', 'defaultValue', 'border'],

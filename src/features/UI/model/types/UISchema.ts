@@ -1,6 +1,6 @@
-// <Page path, scroll position>
-export type ScrollSchema = Record<string, number>
+// <Адрес страницы, позиция скролла>
+export type ScrollSchema = Record<string, number>;
 
 export interface UISchema {
-  scroll: ScrollSchema;
+    scroll: ScrollSchema;
 }

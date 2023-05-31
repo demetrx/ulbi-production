@@ -4,29 +4,21 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-i18n
-  .use(Backend)
+i18n.use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
     // debug: __IS_DEV__,
     debug: false,
-    // ns: ['articles', 'main', 'profile', 'about'], // ns to load
 
     interpolation: {
-      escapeValue: false,
+      escapeValue: false, // not needed for react as it escapes by default
     },
-    nsSeparator: false,
-    keySeparator: false,
-
-    // saveMissingTo: 'current',
-    // saveMissing: true,
-    // defaultNS: 'translation',
 
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },
   });
 
-export { i18n };
+export default i18n;

@@ -12,8 +12,9 @@ interface PopoverProps {
     trigger: ReactNode;
     children: ReactNode;
 }
+
 /**
- * Use new components from "redesigned" folder
+ * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
 export function Popover(props: PopoverProps) {
@@ -31,9 +32,7 @@ export function Popover(props: PopoverProps) {
         {trigger}
       </HPopover.Button>
 
-      <HPopover.Panel
-        className={classNames(cls.panel, {}, menuClasses)}
-      >
+      <HPopover.Panel className={classNames(cls.panel, {}, menuClasses)}>
         {children}
       </HPopover.Panel>
     </HPopover>

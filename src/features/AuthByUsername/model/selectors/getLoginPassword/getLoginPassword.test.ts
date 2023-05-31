@@ -1,19 +1,17 @@
-import { } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/store';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getLoginPassword } from './getLoginPassword';
 
 describe('getLoginPassword.test', () => {
-  test('returns password', () => {
+  test('should return value', () => {
     const state: DeepPartial<StateSchema> = {
-      loginForm: { password: '123' },
+      loginForm: {
+        password: '123123',
+      },
     };
-
-    expect(getLoginPassword(state as StateSchema)).toBe('123');
+    expect(getLoginPassword(state as StateSchema)).toEqual('123123');
   });
-
-  test('works with empty state', () => {
+  test('should work with empty state', () => {
     const state: DeepPartial<StateSchema> = {};
-
-    expect(getLoginPassword(state as StateSchema)).toBe('');
+    expect(getLoginPassword(state as StateSchema)).toEqual('');
   });
 });

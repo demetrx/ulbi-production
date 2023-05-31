@@ -1,49 +1,57 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/theme';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { Currency } from '@/entities/Currency';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Country } from '@/entities/Country';
-import avatar from '@/shared/assets/tests/storybook.jpg';
+import { Currency } from '@/entities/Currency';
 import ProfilePage from './ProfilePage';
+import { Theme } from '@/shared/const/theme';
 
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  argTypes: {},
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+  <ProfilePage {...args} />
+);
 
-export const Light = Template.bind({});
-Light.decorators = [StoreDecorator({
-  profile: {
-    form: {
-      firstName: 'Dmytro',
-      lastName: 'Bielousov',
-      age: 20,
-      currency: Currency.UAH,
-      country: Country.Ukraine,
-      city: 'Kyiv',
-      username: 'admin',
-      avatar,
+export const Normal = Template.bind({});
+Normal.args = {};
+Normal.decorators = [
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 22,
+        country: Country.Ukraine,
+        lastname: 'ulbi tv',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
+      },
     },
-  },
-})];
+  }),
+];
 
 export const Dark = Template.bind({});
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-  profile: {
-    form: {
-      firstName: 'Dmytro',
-      lastName: 'Bielousov',
-      age: 20,
-      currency: Currency.UAH,
-      country: Country.Ukraine,
-      city: 'Kyiv',
-      username: 'admin',
-      avatar,
+Dark.args = {};
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    profile: {
+      form: {
+        username: 'admin',
+        age: 22,
+        country: Country.Ukraine,
+        lastname: 'ulbi tv',
+        first: 'asd',
+        city: 'asf',
+        currency: Currency.USD,
+      },
     },
-  },
-})];
+  }),
+];

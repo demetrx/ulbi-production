@@ -599,10 +599,11 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_light_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": false,
-        "wasArticlesPageOpened": true
+        "wasArticlesPageOpened": true,
+        "isArticlesPageWasOpened": true
       },
       "avatar": "https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA"
     },
@@ -646,11 +647,13 @@
       "firstName": "Dmytrx777",
       "lastName": "Bielousovvvv",
       "age": 20,
-      "currency": "UAH",
+      "currency": "USD",
       "country": "Ukraine",
       "city": "Kyiv",
       "username": "admin",
-      "avatar": "https://media.licdn.com/dms/image/C4E03AQFkm84SuxyPTw/profile-displayphoto-shrink_800_800/0/1657872278941?e=1684972800&v=beta&t=bCNt47AhvEN0BJXwqfLmTllAbwJXeySC3S0bBnR02EA"
+      "avatar": "https://imagez.tmz.com/image/db/1by1/2022/12/08/dbf79f3ff795445db8ac66020b08460a_xl.jpg",
+      "first": "Дмитрий",
+      "lastname": "Белоусов"
     },
     {
       "id": "2",

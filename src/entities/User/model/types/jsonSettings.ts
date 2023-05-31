@@ -1,7 +1,7 @@
-import { Theme } from '@/app/providers/theme';
+import { Theme } from '@/shared/const/theme';
 
 export interface JsonSettings {
-  theme?: Theme;
-  isFirstVisit?: boolean;
-  wasArticlesPageOpened?: boolean;
+    theme?: Theme;
+    isFirstVisit?: boolean;
+    isArticlesPageWasOpened?: boolean;
 }

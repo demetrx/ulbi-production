@@ -1,15 +1,13 @@
 import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { NavigateFunction } from 'react-router-dom';
 import axios, { AxiosStatic } from 'axios';
-import { StateSchema } from '@/app/providers/store';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
-type AsyncThunkType<Return, Arg, RejectedValue> =
-  (arg: Arg) => AsyncThunkAction<Return, Arg, {rejectValue: RejectedValue }>
+type ActionCreatorType<Return, Arg, RejectedValue> = (
+    arg: Arg,
+) => AsyncThunkAction<Return, Arg, { rejectValue: RejectedValue }>;
 
 jest.mock('axios');
 
-// For TS only, they exist there
-// mocking not only module, but internal methods too (e.g. post)
 const mockedAxios = jest.mocked(axios, true);
 
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
@@ -17,31 +15,31 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
 
   getState: () => StateSchema;
 
-  asyncThunk: AsyncThunkType<Return, Arg, RejectedValue>;
+  actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
 
   api: jest.MockedFunctionDeep<AxiosStatic>;
 
-  navigate: NavigateFunction;
+  navigate: jest.MockedFn<any>;
 
   constructor(
-    asyncThunk: AsyncThunkType<Return, Arg, RejectedValue>,
+    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
     state?: DeepPartial<StateSchema>,
   ) {
-    this.asyncThunk = asyncThunk;
+    this.actionCreator = actionCreator;
     this.dispatch = jest.fn();
     this.getState = jest.fn(() => state as StateSchema);
+
     this.api = mockedAxios;
     this.navigate = jest.fn();
   }
 
   async callThunk(arg: Arg) {
-    const actionCreator = this.asyncThunk(arg);
-    const action = await actionCreator(
-      this.dispatch,
-      this.getState,
-      { api: this.api, navigate: this.navigate },
-    );
+    const action = this.actionCreator(arg);
+    const result = await action(this.dispatch, this.getState, {
+      api: this.api,
+      navigate: this.navigate,
+    });
 
-    return action;
+    return result;
   }
 }

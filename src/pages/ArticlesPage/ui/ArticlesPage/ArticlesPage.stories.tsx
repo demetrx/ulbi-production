@@ -1,21 +1,19 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Theme } from '@/app/providers/theme';
-import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import ArticlesPage from './ArticlesPage';
 
 export default {
-  title: 'pages/ArticlesPage',
+  title: 'pages/ArticlesPage/ArticlesPage',
   component: ArticlesPage,
-  argTypes: {},
-  decorators: [StoreDecorator({})],
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />;
+const Template: ComponentStory<typeof ArticlesPage> = (args) => (
+  <ArticlesPage {...args} />
+);
 
-export const Light = Template.bind({});
-Light.args = {};
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const Normal = Template.bind({});
+Normal.args = {};

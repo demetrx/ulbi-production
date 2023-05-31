@@ -1,15 +1,15 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 
-const ForbiddenPage = memo(() => {
-  const { t } = useTranslation();
+const ForbiddenPage = () => {
+  const { t } = useTranslation('');
 
   return (
-    <Page dataTestId="ForbiddenPage">
-      {t('You don\'t have the required rights to access this page')}
+    <Page data-testid="ForbiddenPage">
+      {t('У вас нет доступа к этой странице')}
     </Page>
   );
-});
+};
 
 export default ForbiddenPage;

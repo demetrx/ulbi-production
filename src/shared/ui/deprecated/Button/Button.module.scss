@@ -1,13 +1,7 @@
-.button {
+.Button {
   cursor: pointer;
   color: var(--primary-color);
   padding: 6px 15px;
-
-  &:disabled {
-    opacity: 0.5;
-    fill-opacity: 50%;
-    stroke-opacity: 50%;
-  }
 
   &:hover {
     opacity: 0.8;
@@ -16,27 +10,30 @@
   }
 }
 
-.clear,
-.clear-inverted {
+.clear {
   padding: 0;
   border: none;
   background: none;
   outline: none;
 }
 
-.clear-inverted {
+.clearInverted {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
   color: var(--inverted-primary-color);
 }
 
-.outlined {
+.outline {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
   background: none;
 }
 
-.outlined-red {
-  border: 1px solid var(--color-red-light);
-  color: var(--color-red-light);
+.outline_red {
+  border: 1px solid var(--red-light);
+  color: var(--red-light);
   background: none;
 }
 
@@ -46,7 +43,7 @@
   border: none;
 }
 
-.background-inverted {
+.backgroundInverted {
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
   border: none;
@@ -56,29 +53,37 @@
   padding: 0;
 }
 
-.square.size-m {
+.square.size_m {
   width: var(--font-line-m);
   height: var(--font-line-m);
 }
 
-.square.size-l {
+.square.size_l {
   width: var(--font-line-l);
   height: var(--font-line-l);
 }
 
-.square.size-xl {
+.square.size_xl {
   width: var(--font-line-xl);
   height: var(--font-line-xl);
 }
 
-.size-m {
+.size_m {
   font: var(--font-m);
 }
 
-.size-l {
+.size_l {
   font: var(--font-l);
 }
 
-.size-xl {
+.size_xl {
   font: var(--font-xl);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.fullWidth {
+  width: 100%;
 }
