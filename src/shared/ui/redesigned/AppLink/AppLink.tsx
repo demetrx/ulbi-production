@@ -13,25 +13,27 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
-  const {
-    to,
-    className,
-    children,
-    variant = 'primary',
-    activeClassName = '',
-    ...otherProps
-  } = props;
-
-  return (
-    <NavLink
-      to={to}
-      className={({ isActive }) => classNames(cls.AppLink, { [activeClassName]: isActive }, [
+    const {
+        to,
         className,
-        cls[variant],
-      ])}
-      {...otherProps}
-    >
-      {children}
-    </NavLink>
-  );
+        children,
+        variant = 'primary',
+        activeClassName = '',
+        ...otherProps
+    } = props;
+
+    return (
+        <NavLink
+            to={to}
+            className={({ isActive }) =>
+                classNames(cls.AppLink, { [activeClassName]: isActive }, [
+                    className,
+                    cls[variant],
+                ])
+            }
+            {...otherProps}
+        >
+            {children}
+        </NavLink>
+    );
 });

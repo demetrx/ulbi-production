@@ -15,33 +15,33 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-  const { toggleTheme } = useTheme();
-  const dispatch = useAppDispatch();
+    const { theme, toggleTheme } = useTheme();
+    const dispatch = useAppDispatch();
 
-  const onToggleHandler = useCallback(() => {
-    toggleTheme((newTheme) => {
-      dispatch(saveJsonSettings({ theme: newTheme }));
-    });
-  }, [dispatch, toggleTheme]);
+    const onToggleHandler = useCallback(() => {
+        toggleTheme((newTheme) => {
+            dispatch(saveJsonSettings({ theme: newTheme }));
+        });
+    }, [dispatch, toggleTheme]);
 
-  return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
-      off={(
-        <Button
-          theme={ButtonTheme.CLEAR}
-          className={classNames('', {}, [className])}
-          onClick={onToggleHandler}
-        >
-          <IconDeprecated
-            Svg={ThemeIconDeprecated}
-            width={40}
-            height={40}
-            inverted
-          />
-        </Button>
-              )}
-    />
-  );
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<Icon Svg={ThemeIcon} clickable onClick={onToggleHandler} />}
+            off={
+                <Button
+                    theme={ButtonTheme.CLEAR}
+                    className={classNames('', {}, [className])}
+                    onClick={onToggleHandler}
+                >
+                    <IconDeprecated
+                        Svg={ThemeIconDeprecated}
+                        width={40}
+                        height={40}
+                        inverted
+                    />
+                </Button>
+            }
+        />
+    );
 });

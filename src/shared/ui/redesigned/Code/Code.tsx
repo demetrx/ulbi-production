@@ -13,40 +13,40 @@ interface CodeProps {
 }
 
 export const Code = memo((props: CodeProps) => {
-  const { className, text } = props;
+    const { className, text } = props;
 
-  const onCopy = useCallback(() => {
-    navigator.clipboard.writeText(text);
-  }, [text]);
+    const onCopy = useCallback(() => {
+        navigator.clipboard.writeText(text);
+    }, [text]);
 
-  return (
-    <ToggleFeatures
-      feature="isAppRedesigned"
-      on={(
-        <pre
-          className={classNames(cls.CodeRedesigned, {}, [className])}
-        >
-          <Icon
-            clickable
-            onClick={onCopy}
-            className={cls.copyBtn}
-            Svg={CopyIconNew}
-          />
-          <code>{text}</code>
-        </pre>
-              )}
-      off={(
-        <pre className={classNames(cls.Code, {}, [className])}>
-          <Button
-            onClick={onCopy}
-            className={cls.copyBtn}
-            theme={ButtonTheme.CLEAR}
-          >
-            <CopyIcon className={cls.copyIcon} />
-          </Button>
-          <code>{text}</code>
-        </pre>
-              )}
-    />
-  );
+    return (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <pre
+                    className={classNames(cls.CodeRedesigned, {}, [className])}
+                >
+                    <Icon
+                        clickable
+                        onClick={onCopy}
+                        className={cls.copyBtn}
+                        Svg={CopyIconNew}
+                    />
+                    <code>{text}</code>
+                </pre>
+            }
+            off={
+                <pre className={classNames(cls.Code, {}, [className])}>
+                    <Button
+                        onClick={onCopy}
+                        className={cls.copyBtn}
+                        theme={ButtonTheme.CLEAR}
+                    >
+                        <CopyIcon className={cls.copyIcon} />
+                    </Button>
+                    <code>{text}</code>
+                </pre>
+            }
+        />
+    );
 });

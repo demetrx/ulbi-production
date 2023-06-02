@@ -9,19 +9,21 @@ interface AppLogoProps {
     size?: number;
 }
 
-export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => (
-  <HStack
-    max
-    justify="center"
-    className={classNames(cls.appLogoWrapper, {}, [className])}
-  >
-    <AppSvg
-      width={size}
-      height={size}
-      color="black"
-      className={cls.appLogo}
-    />
-    <div className={cls.gradientBig} />
-    <div className={cls.gradientSmall} />
-  </HStack>
-));
+export const AppLogo = memo(({ className, size = 50 }: AppLogoProps) => {
+    return (
+        <HStack
+            max
+            justify="center"
+            className={classNames(cls.appLogoWrapper, {}, [className])}
+        >
+            <AppSvg
+                width={size}
+                height={size}
+                color="black"
+                className={cls.appLogo}
+            />
+            <div className={cls.gradientBig} />
+            <div className={cls.gradientSmall} />
+        </HStack>
+    );
+});

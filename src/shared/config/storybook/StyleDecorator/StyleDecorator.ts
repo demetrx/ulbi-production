@@ -1,4 +1,4 @@
-// eslint-disable-next-line
+// eslint-disable-next-line ulbi-tv-plugin/layer-imports
 import '@/app/styles/index.scss';
 import { Story } from '@storybook/react';
 

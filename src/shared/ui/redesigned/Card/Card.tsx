@@ -19,41 +19,41 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
-  0: 'gap_0',
-  8: 'gap_8',
-  16: 'gap_16',
-  24: 'gap_24',
+    '0': 'gap_0',
+    '8': 'gap_8',
+    '16': 'gap_16',
+    '24': 'gap_24',
 };
 
 export const Card = memo((props: CardProps) => {
-  const {
-    className,
-    children,
-    variant = 'normal',
-    max,
-    padding = '8',
-    border = 'normal',
-    fullWidth,
-    fullHeight,
-    ...otherProps
-  } = props;
+    const {
+        className,
+        children,
+        variant = 'normal',
+        max,
+        padding = '8',
+        border = 'normal',
+        fullWidth,
+        fullHeight,
+        ...otherProps
+    } = props;
 
-  const paddingClass = mapPaddingToClass[padding];
+    const paddingClass = mapPaddingToClass[padding];
 
-  return (
-    <div
-      className={classNames(
-        cls.Card,
-        {
-          [cls.max]: max,
-          [cls.fullHeight]: fullHeight,
-          [cls.fullWidth]: fullWidth,
-        },
-        [className, cls[variant], cls[paddingClass], cls[border]],
-      )}
-      {...otherProps}
-    >
-      {children}
-    </div>
-  );
+    return (
+        <div
+            className={classNames(
+                cls.Card,
+                {
+                    [cls.max]: max,
+                    [cls.fullHeight]: fullHeight,
+                    [cls.fullWidth]: fullWidth,
+                },
+                [className, cls[variant], cls[paddingClass], cls[border]],
+            )}
+            {...otherProps}
+        >
+            {children}
+        </div>
+    );
 });

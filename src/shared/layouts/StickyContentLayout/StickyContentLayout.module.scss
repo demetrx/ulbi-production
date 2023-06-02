@@ -1,8 +1,10 @@
 .MainLayout {
   display: grid;
-  grid-template-areas: "left content right";
+  grid-template-areas:
+            'left content right';
   grid-template-columns: min-content 1fr min-content;
 }
+
 
 .left {
   grid-area: left;
@@ -16,7 +18,7 @@
   width: 100%;
 }
 
-.right {
+.right{
   grid-area: right;
 }
 
@@ -26,3 +28,4 @@
   top: 32px;
   height: fit-content;
 }
+

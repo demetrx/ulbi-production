@@ -5,17 +5,22 @@ import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { UiDesignSwitcher } from '@/features/uiDesignSwitcher';
 
-const SettingsPage = memo(() => {
-  const { t } = useTranslation();
+interface SettingsPageProps {
+    className?: string;
+}
 
-  return (
-    <Page>
-      <VStack gap="16">
-        <Text title={t('Настройки пользователя')} />
-        <UiDesignSwitcher />
-      </VStack>
-    </Page>
-  );
+const SettingsPage = memo((props: SettingsPageProps) => {
+    const { className } = props;
+    const { t } = useTranslation();
+
+    return (
+        <Page>
+            <VStack gap="16">
+                <Text title={t('Настройки пользователя')} />
+                <UiDesignSwitcher />
+            </VStack>
+        </Page>
+    );
 });
 
 export default SettingsPage;

@@ -10,10 +10,10 @@ interface LoaderProps {
  * @deprecated
  */
 export const Loader = ({ className }: LoaderProps) => (
-  <div className={classNames('lds-ellipsis', {}, [className])}>
-    <div />
-    <div />
-    <div />
-    <div />
-  </div>
+    <div className={classNames('lds-ellipsis', {}, [className])}>
+        <div />
+        <div />
+        <div />
+        <div />
+    </div>
 );

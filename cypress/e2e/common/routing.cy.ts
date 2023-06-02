@@ -1,36 +1,32 @@
 import { selectByTestId } from '../../helpers/selectByTestId';
 
-describe('template spec', () => {
-  describe('User NOT authorized', () => {
-    it('Going to main page', () => {
-      cy.visit('/');
-      cy.get(selectByTestId('MainPage')).should('exist');
+describe('Роутинг', () => {
+    describe('Пользователь НЕ авторизован', () => {
+        it('Переход на главную страницу', () => {
+            cy.visit('/');
+            cy.get(selectByTestId('MainPage')).should('exist');
+        });
+        it('Переход открывает страницу профиля', () => {
+            cy.visit('/profile/1');
+            cy.get(selectByTestId('MainPage')).should('exist');
+        });
+        it('Переход открывает несуществующий маршрут ', () => {
+            cy.visit('/fasfasfasf');
+            cy.get(selectByTestId('NotFoundPage')).should('exist');
+        });
     });
+    describe('Пользователь авторизован', () => {
+        beforeEach(() => {
+            cy.login();
+        });
+        it('Переход открывает страницу профиля', () => {
+            cy.visit('/profile/1');
+            cy.get(selectByTestId('ProfilePage')).should('exist');
+        });
 
-    it('Going to profile page, redirects to main', () => {
-      cy.visit('/profile/1');
-      cy.get(selectByTestId('MainPage')).should('exist');
+        it('Переход открывает страницу со списком статей', () => {
+            cy.visit('/articles');
+            cy.get(selectByTestId('ArticlesPage')).should('exist');
+        });
     });
-
-    it('Going to non-existing route', () => {
-      cy.visit('/awawdawd');
-      cy.get(selectByTestId('NotFoundPage')).should('exist');
-    });
-  });
-
-  describe('User authorized', () => {
-    beforeEach(() => {
-      cy.login();
-    });
-
-    it('Going to profile page', () => {
-      cy.visit('/profile/1');
-      cy.get(selectByTestId('ProfilePage')).should('exist');
-    });
-
-    it('Going to articles page', () => {
-      cy.visit('/articles');
-      cy.get(selectByTestId('ArticlesPage')).should('exist');
-    });
-  });
 });

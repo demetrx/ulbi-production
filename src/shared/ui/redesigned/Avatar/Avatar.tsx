@@ -13,30 +13,28 @@ interface AvatarProps {
     alt?: string;
 }
 
-export const Avatar = ({
-  className, src, size = 100, alt,
-}: AvatarProps) => {
-  const mods: Mods = {};
+export const Avatar = ({ className, src, size = 100, alt }: AvatarProps) => {
+    const mods: Mods = {};
 
-  const styles = useMemo<CSSProperties>(
-    () => ({
-      width: size,
-      height: size,
-    }),
-    [size],
-  );
+    const styles = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
-  const fallback = <Skeleton width={size} height={size} border="50%" />;
-  const errorFallback = <Icon width={size} height={size} Svg={UserIcon} />;
+    const fallback = <Skeleton width={size} height={size} border="50%" />;
+    const errorFallback = <Icon width={size} height={size} Svg={UserIcon} />;
 
-  return (
-    <AppImage
-      fallback={fallback}
-      errorFallback={errorFallback}
-      src={src}
-      alt={alt}
-      style={styles}
-      className={classNames(cls.Avatar, mods, [className])}
-    />
-  );
+    return (
+        <AppImage
+            fallback={fallback}
+            errorFallback={errorFallback}
+            src={src}
+            alt={alt}
+            style={styles}
+            className={classNames(cls.Avatar, mods, [className])}
+        />
+    );
 };
