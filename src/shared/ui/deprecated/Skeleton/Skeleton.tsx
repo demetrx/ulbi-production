@@ -10,7 +10,7 @@ interface SkeletonProps {
 }
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const Skeleton = memo((props: SkeletonProps) => {

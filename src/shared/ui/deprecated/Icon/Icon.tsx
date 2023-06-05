@@ -9,7 +9,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const Icon = memo((props: IconProps) => {

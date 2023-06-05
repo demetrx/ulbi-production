@@ -16,7 +16,7 @@ interface StarRatingProps {
 const stars = [1, 2, 3, 4, 5];
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const StarRating = memo((props: StarRatingProps) => {
@@ -56,7 +56,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                 [className],
             )}
         >
-            {stars.map((starNumber) => {
+            {stars.map((starNumber, idx) => {
                 const commonProps = {
                     className: classNames(
                         cls.starIcon,
@@ -79,6 +79,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                 };
                 return (
                     <ToggleFeatures
+                        key={idx}
                         feature="isAppRedesigned"
                         on={<Icon clickable={!isSelected} {...commonProps} />}
                         off={<IconDeprecated {...commonProps} />}

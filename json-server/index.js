@@ -6,7 +6,7 @@ const http = require('http');
 
 const options = {
     key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
-    cert: fs.readFileSync(path.resolve(__dirname,'cert.pem')),
+    cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
 };
 
 const server = jsonServer.create();
@@ -15,8 +15,6 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
-
-// Нужно для небольшой задержки, чтобы запрос проходил не мгновенно, имитация реального апи
 server.use(async (req, res, next) => {
     await new Promise((res) => {
         setTimeout(res, 800);
@@ -24,11 +22,12 @@ server.use(async (req, res, next) => {
     next();
 });
 
-// Эндпоинт для логина
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+        const db = JSON.parse(
+            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
+        );
         const { users = [] } = db;
 
         const userFromBd = users.find(
@@ -46,7 +45,6 @@ server.post('/login', (req, res) => {
     }
 });
 
-// проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {
     if (!req.headers.authorization) {
@@ -58,7 +56,6 @@ server.use((req, res, next) => {
 
 server.use(router);
 
-// запуск сервера
 const PORT = 8443;
 const HTTP_PORT = 8000;
 

@@ -26,8 +26,8 @@ export const ProfileCardDeprecatedError = () => {
         >
             <TextDeprecated
                 theme={TextTheme.ERROR}
-                title={t('Произошла ошибка при загрузке профиля')}
-                text={t('Попробуйте обновить страницу')}
+                title={t('Failed to load profile data')}
+                text={t('Try to reload the page')}
                 align={TextAlign.CENTER}
             />
         </HStack>
@@ -79,7 +79,7 @@ export const ProfileCardDeprecated = memo((props: ProfileCardProps) => {
             )}
             <InputDeprecated
                 value={data?.first}
-                placeholder={t('Ваше имя')}
+                placeholder={t('Your name')}
                 className={cls.input}
                 onChange={onChangeFirstname}
                 readonly={readonly}
@@ -87,7 +87,7 @@ export const ProfileCardDeprecated = memo((props: ProfileCardProps) => {
             />
             <InputDeprecated
                 value={data?.lastname}
-                placeholder={t('Ваша фамилия')}
+                placeholder={t('Your lastname')}
                 className={cls.input}
                 onChange={onChangeLastname}
                 readonly={readonly}
@@ -95,28 +95,28 @@ export const ProfileCardDeprecated = memo((props: ProfileCardProps) => {
             />
             <InputDeprecated
                 value={data?.age}
-                placeholder={t('Ваш возраст')}
+                placeholder={t('Your age')}
                 className={cls.input}
                 onChange={onChangeAge}
                 readonly={readonly}
             />
             <InputDeprecated
                 value={data?.city}
-                placeholder={t('Город')}
+                placeholder={t('City')}
                 className={cls.input}
                 onChange={onChangeCity}
                 readonly={readonly}
             />
             <InputDeprecated
                 value={data?.username}
-                placeholder={t('Введите имя пользователя')}
+                placeholder={t('Provide username')}
                 className={cls.input}
                 onChange={onChangeUsername}
                 readonly={readonly}
             />
             <InputDeprecated
                 value={data?.avatar}
-                placeholder={t('Введите ссылку на аватар')}
+                placeholder={t('Provide avatar link')}
                 className={cls.input}
                 onChange={onChangeAvatar}
                 readonly={readonly}

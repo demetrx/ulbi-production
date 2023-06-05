@@ -17,7 +17,7 @@ interface SelectProps<T extends string> {
 }
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const Select = <T extends string>(props: SelectProps<T>) => {

@@ -16,7 +16,7 @@ interface TabsProps {
 }
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const Tabs = memo((props: TabsProps) => {

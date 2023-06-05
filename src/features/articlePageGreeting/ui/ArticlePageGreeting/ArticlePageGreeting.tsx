@@ -24,9 +24,9 @@ export const ArticlePageGreeting = memo(() => {
 
     const text = (
         <Text
-            title={t('Добро пожаловать на страницу статей')}
+            title={t('Welcome to articles page')}
             text={t(
-                'Здесь вы можете искать и просматривать статьи на различные темы',
+                'Here you may search for and look through articles on different topics',
             )}
         />
     );

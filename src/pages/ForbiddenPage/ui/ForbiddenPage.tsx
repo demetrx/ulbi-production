@@ -7,7 +7,7 @@ const ForbiddenPage = () => {
 
     return (
         <Page data-testid="ForbiddenPage">
-            {t('У вас нет доступа к этой странице')}
+            {t("You don't have required rights to access this page")}
         </Page>
     );
 };

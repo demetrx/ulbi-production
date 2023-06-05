@@ -21,7 +21,7 @@ interface DrawerProps {
 const height = window.innerHeight - 100;
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const DrawerContent = memo((props: DrawerProps) => {

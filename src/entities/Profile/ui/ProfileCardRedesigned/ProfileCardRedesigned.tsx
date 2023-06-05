@@ -17,8 +17,8 @@ export const ProfileCardRedesignedError = () => {
         <HStack justify="center" max>
             <Text
                 variant="error"
-                title={t('Произошла ошибка при загрузке профиля')}
-                text={t('Попробуйте обновить страницу')}
+                title={t('Failed to load profile data')}
+                text={t('Try to reload the page')}
                 align="center"
             />
         </HStack>
@@ -80,27 +80,27 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                     <VStack gap="16" max>
                         <Input
                             value={data?.first}
-                            label={t('Имя')}
+                            label={t('Name')}
                             onChange={onChangeFirstname}
                             readonly={readonly}
                             data-testid="ProfileCard.firstname"
                         />
                         <Input
                             value={data?.lastname}
-                            label={t('Фамилия')}
+                            label={t('Surname')}
                             onChange={onChangeLastname}
                             readonly={readonly}
                             data-testid="ProfileCard.lastname"
                         />
                         <Input
                             value={data?.age}
-                            label={t('Возраст')}
+                            label={t('Age')}
                             onChange={onChangeAge}
                             readonly={readonly}
                         />
                         <Input
                             value={data?.city}
-                            label={t('Город')}
+                            label={t('City')}
                             onChange={onChangeCity}
                             readonly={readonly}
                         />
@@ -108,13 +108,13 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                     <VStack gap="16" max>
                         <Input
                             value={data?.username}
-                            label={t('Имя пользователя')}
+                            label={t('Username')}
                             onChange={onChangeUsername}
                             readonly={readonly}
                         />
                         <Input
                             value={data?.avatar}
-                            label={t('Cсылка на аватар')}
+                            label={t('Link to avatar')}
                             onChange={onChangeAvatar}
                             readonly={readonly}
                         />

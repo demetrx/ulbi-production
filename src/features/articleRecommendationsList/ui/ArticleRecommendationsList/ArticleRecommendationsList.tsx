@@ -34,11 +34,11 @@ export const ArticleRecommendationsList = memo(
             >
                 <ToggleFeatures
                     feature="isAppRedesigned"
-                    on={<Text size="l" title={t('Рекомендуем')} />}
+                    on={<Text size="l" title={t('Recommend')} />}
                     off={
                         <TextDeprecated
                             size={TextSize.L}
-                            title={t('Рекомендуем')}
+                            title={t('Recommend')}
                         />
                     }
                 />

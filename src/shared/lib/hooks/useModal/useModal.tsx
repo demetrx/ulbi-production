@@ -13,7 +13,6 @@ interface UseModalProps {
 }
 
 /**
- * Переиспользуемый хук для модальных компонентов (drawer/modal)
  * @param animationDelay
  * @param isOpen
  * @param onClose
@@ -41,7 +40,6 @@ export function useModal({ animationDelay, isOpen, onClose }: UseModalProps) {
         }
     }, [animationDelay, onClose]);
 
-    // Новые ссылки!!!
     const onKeyDown = useCallback(
         (e: KeyboardEvent) => {
             if (e.key === 'Escape') {

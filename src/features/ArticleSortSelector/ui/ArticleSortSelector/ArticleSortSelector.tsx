@@ -26,11 +26,11 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         () => [
             {
                 value: 'asc',
-                content: t('возрастанию'),
+                content: t('ascending'),
             },
             {
                 value: 'desc',
-                content: t('убыванию'),
+                content: t('descending'),
             },
         ],
         [t],
@@ -40,15 +40,15 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         () => [
             {
                 value: ArticleSortField.CREATED,
-                content: t('дате создания'),
+                content: t('publication date'),
             },
             {
                 value: ArticleSortField.TITLE,
-                content: t('названию'),
+                content: t('title'),
             },
             {
                 value: ArticleSortField.VIEWS,
-                content: t('просмотрам'),
+                content: t('views'),
             },
         ],
         [t],
@@ -66,7 +66,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                     )}
                 >
                     <VStack gap="8">
-                        <Text text={t('Сортировать по:')} />
+                        <Text text={t('Sort by:')} />
                         <ListBox
                             items={sortFieldOptions}
                             value={sort}
@@ -88,13 +88,13 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
                 >
                     <Select<ArticleSortField>
                         options={sortFieldOptions}
-                        label={t('Сортировать ПО')}
+                        label={t('Sort by')}
                         value={sort}
                         onChange={onChangeSort}
                     />
                     <Select
                         options={orderOptions}
-                        label={t('по')}
+                        label={t('by')}
                         value={order}
                         onChange={onChangeOrder}
                         className={cls.order}

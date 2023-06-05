@@ -57,7 +57,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     <header className={classNames(mainClass, {}, [className])}>
                         <Text
                             className={cls.appName}
-                            title={t('Ulbi TV App')}
+                            title={t('ITimes')}
                             theme={TextTheme.INVERTED}
                         />
                         <AppLink
@@ -65,7 +65,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                             theme={AppLinkTheme.SECONDARY}
                             className={cls.createBtn}
                         >
-                            {t('Создать статью')}
+                            {t('Create article')}
                         </AppLink>
                         <HStack gap="16" className={cls.actions}>
                             <NotificationButton />
@@ -87,7 +87,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         className={cls.links}
                         onClick={onShowModal}
                     >
-                        {t('Войти')}
+                        {t('Log In')}
                     </Button>
                 }
                 off={
@@ -96,7 +96,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         className={cls.links}
                         onClick={onShowModal}
                     >
-                        {t('Войти')}
+                        {t('Log In')}
                     </ButtonDeprecated>
                 }
             />

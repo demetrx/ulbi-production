@@ -29,7 +29,7 @@ export const useSidebarItems = () => {
                 off: () => MainIconDeprecated,
                 on: () => MainIcon,
             }),
-            text: 'Главная',
+            text: 'Main',
         },
         {
             path: getRouteAbout(),
@@ -38,7 +38,7 @@ export const useSidebarItems = () => {
                 off: () => AboutIconDeprecated,
                 on: () => AboutIcon,
             }),
-            text: 'О сайте',
+            text: 'About us',
         },
     ];
 
@@ -51,7 +51,7 @@ export const useSidebarItems = () => {
                     off: () => ProfileIconDeprecated,
                     on: () => ProfileIcon,
                 }),
-                text: 'Профиль',
+                text: 'Profile',
                 authOnly: true,
             },
             {
@@ -61,7 +61,7 @@ export const useSidebarItems = () => {
                     off: () => ArticleIconDeprecated,
                     on: () => ArticleIcon,
                 }),
-                text: 'Статьи',
+                text: 'Articles',
                 authOnly: true,
             },
         );

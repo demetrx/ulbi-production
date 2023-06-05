@@ -25,11 +25,11 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
 
     const items = [
         {
-            content: t('Новый'),
+            content: t('New'),
             value: 'new',
         },
         {
-            content: t('Старый'),
+            content: t('Old'),
             value: 'old',
         },
     ];
@@ -52,7 +52,7 @@ export const UiDesignSwitcher = memo((props: UiDesignSwitcherProps) => {
 
     return (
         <HStack>
-            <Text text={t('Вариант интерфейса')} />
+            <Text text={t('Interface variant')} />
             {isLoading ? (
                 <Skeleton width={100} height={40} />
             ) : (

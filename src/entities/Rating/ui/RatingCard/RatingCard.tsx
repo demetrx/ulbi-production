@@ -76,7 +76,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                         data-testid="RatingCard.Input"
                         value={feedback}
                         onChange={setFeedback}
-                        placeholder={t('Ваш отзыв')}
+                        placeholder={t('Your review')}
                     />
                 </>
             }
@@ -87,7 +87,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                         data-testid="RatingCard.Input"
                         value={feedback}
                         onChange={setFeedback}
-                        placeholder={t('Ваш отзыв')}
+                        placeholder={t('Your review')}
                     />
                 </>
             }
@@ -101,12 +101,16 @@ export const RatingCard = memo((props: RatingCardProps) => {
                     feature="isAppRedesigned"
                     on={
                         <Text
-                            title={starsCount ? t('Спасибо за оценку!') : title}
+                            title={
+                                starsCount ? t('Thanks for feedback!') : title
+                            }
                         />
                     }
                     off={
                         <TextDepreacetd
-                            title={starsCount ? t('Спасибо за оценку!') : title}
+                            title={
+                                starsCount ? t('Thanks for feedback!') : title
+                            }
                         />
                     }
                 />
@@ -128,13 +132,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
                                         data-testid="RatingCard.Close"
                                         onClick={cancelHandle}
                                     >
-                                        {t('Закрыть')}
+                                        {t('Close')}
                                     </Button>
                                     <Button
                                         data-testid="RatingCard.Send"
                                         onClick={acceptHandle}
                                     >
-                                        {t('Отправить')}
+                                        {t('Submit')}
                                     </Button>
                                 </HStack>
                             }
@@ -145,13 +149,13 @@ export const RatingCard = memo((props: RatingCardProps) => {
                                         onClick={cancelHandle}
                                         theme={ButtonTheme.OUTLINE_RED}
                                     >
-                                        {t('Закрыть')}
+                                        {t('Close')}
                                     </ButtonDeprecated>
                                     <ButtonDeprecated
                                         data-testid="RatingCard.Send"
                                         onClick={acceptHandle}
                                     >
-                                        {t('Отправить')}
+                                        {t('Submit')}
                                     </ButtonDeprecated>
                                 </HStack>
                             }
@@ -171,7 +175,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                                     onClick={acceptHandle}
                                     size="l"
                                 >
-                                    {t('Отправить')}
+                                    {t('Submit')}
                                 </Button>
                             }
                             off={
@@ -180,7 +184,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                                     onClick={acceptHandle}
                                     size={ButtonSize.L}
                                 >
-                                    {t('Отправить')}
+                                    {t('Submit')}
                                 </ButtonDeprecated>
                             }
                         />

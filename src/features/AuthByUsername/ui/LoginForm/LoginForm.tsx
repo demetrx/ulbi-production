@@ -76,10 +76,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                         gap="16"
                         className={classNames(cls.LoginForm, {}, [className])}
                     >
-                        <Text title={t('Форма авторизации')} />
+                        <Text title={t('Authorization form')} />
                         {error && (
                             <Text
-                                text={t('Вы ввели неверный логин или пароль')}
+                                text={t('You entered wrong credentials')}
                                 variant="error"
                             />
                         )}
@@ -87,14 +87,14 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                             autofocus
                             type="text"
                             className={cls.input}
-                            placeholder={t('Введите username')}
+                            placeholder={t('Enter username')}
                             onChange={onChangeUsername}
                             value={username}
                         />
                         <Input
                             type="text"
                             className={cls.input}
-                            placeholder={t('Введите пароль')}
+                            placeholder={t('Enter password')}
                             onChange={onChangePassword}
                             value={password}
                         />
@@ -103,16 +103,16 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                             onClick={onLoginClick}
                             disabled={isLoading}
                         >
-                            {t('Войти')}
+                            {t('Log In')}
                         </Button>
                     </VStack>
                 }
                 off={
                     <div className={classNames(cls.LoginForm, {}, [className])}>
-                        <TextDeprecated title={t('Форма авторизации')} />
+                        <TextDeprecated title={t('Authorization form')} />
                         {error && (
                             <TextDeprecated
-                                text={t('Вы ввели неверный логин или пароль')}
+                                text={t('You entered wrong credentials')}
                                 theme={TextTheme.ERROR}
                             />
                         )}
@@ -120,14 +120,14 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                             autofocus
                             type="text"
                             className={cls.input}
-                            placeholder={t('Введите username')}
+                            placeholder={t('Enter username')}
                             onChange={onChangeUsername}
                             value={username}
                         />
                         <InputDeprecated
                             type="text"
                             className={cls.input}
-                            placeholder={t('Введите пароль')}
+                            placeholder={t('Enter password')}
                             onChange={onChangePassword}
                             value={password}
                         />
@@ -137,7 +137,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                             onClick={onLoginClick}
                             disabled={isLoading}
                         >
-                            {t('Войти')}
+                            {t('Log In')}
                         </ButtonDeprecated>
                     </div>
                 }

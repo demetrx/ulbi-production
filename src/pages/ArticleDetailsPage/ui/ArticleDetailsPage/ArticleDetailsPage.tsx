@@ -77,7 +77,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                                 on={<ArticleRating articleId={id} />}
                                 off={
                                     <Card>
-                                        {t('Оценка статей скоро появится!')}
+                                        {t('Article rating coming soon!')}
                                     </Card>
                                 }
                             />

@@ -25,7 +25,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
             feature="isAppRedesigned"
             on={
                 <Button onClick={toggle} variant="clear">
-                    {t(short ? 'Короткий язык' : 'Язык')}
+                    {t(short ? 'Short lang' : 'Lang')}
                 </Button>
             }
             off={
@@ -34,7 +34,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
                     theme={ButtonTheme.CLEAR}
                     onClick={toggle}
                 >
-                    {t(short ? 'Короткий язык' : 'Язык')}
+                    {t(short ? 'Short lang' : 'Lang')}
                 </ButtonDeprecated>
             }
         />

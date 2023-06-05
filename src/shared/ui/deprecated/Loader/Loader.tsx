@@ -6,7 +6,7 @@ interface LoaderProps {
 }
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export const Loader = ({ className }: LoaderProps) => (

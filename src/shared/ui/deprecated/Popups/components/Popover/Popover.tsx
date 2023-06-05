@@ -14,7 +14,7 @@ interface PopoverProps {
 }
 
 /**
- * Устарел, используем новые компоненты из папки redesigned
+ * Deprecated, use new components from the "redesigned" directory
  * @deprecated
  */
 export function Popover(props: PopoverProps) {
