@@ -14,7 +14,13 @@ const MainPage = () => {
 
     return (
         <Page data-testid="MainPage">
-            <VStack max gap="16" align="center">
+            <VStack
+                max
+                gap="16"
+                align="center"
+                justify="center"
+                style={{ height: '100%' }}
+            >
                 <Text size="l" align="center" title={t('Main page')} />
                 <Text text={t('Main info')} />
                 <Text text={t('Main credentials')} />
