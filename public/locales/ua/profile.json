@@ -1,0 +1,23 @@
+{
+  "Age": "Вік",
+  "Cancel": "Відмінити",
+  "City": "Місто",
+  "Data not provided": "Дані не надані",
+  "Edit": "Редагувати",
+  "First and last names are required": "Ім'я та прізвище є обов'язковими",
+  "Incorrect age": "Невалідне значення віку",
+  "Incorrect region": "Невалідний регіон",
+  "Link to avatar": "Посилання на аватар",
+  "Name": "Ім'я",
+  "Profile": "Профіль",
+  "Provide avatar link": "Введіть посилання на аватар",
+  "Provide username": "Введіть ім'я користувача",
+  "S": "С",
+  "Save": "Зберегти",
+  "Server error occurred when saving": "Виникла помилка при збереженні",
+  "Surname": "Прізвище",
+  "Username": "Ім'я користувача",
+  "Your age": "Ваш вік",
+  "Your lastname": "Ваше прізвище",
+  "Your name": "Ваше ім'я"
+}

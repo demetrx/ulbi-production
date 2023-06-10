@@ -25,9 +25,7 @@
   "IT": "",
   "ITimes": "",
   "Interface variant": "",
-  "Leave your feedback": {
-    " This would improve the quality of our services": ""
-  },
+  "Leave your feedback": "Leave your feedback. This would improve the quality of our services",
   "Log In": "",
   "Log Out": "",
   "Main page": "",
@@ -37,13 +35,7 @@
   "Page not found": "",
   "Profile": "",
   "Rate the article": "",
-  "Read more": {
-    "": {
-      "": {
-        "": ""
-      }
-    }
-  },
+  "Read more": "",
   "Recommend": "",
   "Refresh the page": "",
   "Science": "",
@@ -53,7 +45,6 @@
   "Submit": "",
   "Thanks for feedback!": "",
   "Try to reload the page": "",
-  "Unpredictable error occured": "",
   "Unpredictable error occurred": "",
   "User settings": "",
   "Welcome to articles page": "",
@@ -66,8 +57,5 @@
   "publication date": "",
   "throw error": "",
   "title": "",
-  "views": "",
-  "Здесь вы можете искать и просматривать статьи на различные темы": "",
-  "Комментарии": "",
-  "Обновить страницу": ""
+  "views": ""
 }

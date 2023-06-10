@@ -69,9 +69,7 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
             rate={rating?.rate}
             className={className}
             title={t('Rate the article')}
-            feedbackTitle={t(
-                'Leave your feedback. This would improve the quality of our services',
-            )}
+            feedbackTitle={t('Leave your feedback')}
             hasFeedback
         />
     );

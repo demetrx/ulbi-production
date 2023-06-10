@@ -80,9 +80,7 @@ export const ArticleListItemRedesigned = memo((props: ArticleListItemProps) => {
                             target={target}
                             to={getRouteArticleDetails(article.id)}
                         >
-                            <Button variant="outline">
-                                {t('Read more...')}
-                            </Button>
+                            <Button variant="outline">{t('Read more')}</Button>
                         </AppLink>
                         {views}
                     </HStack>

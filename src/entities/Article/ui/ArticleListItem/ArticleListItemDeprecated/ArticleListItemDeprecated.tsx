@@ -74,7 +74,7 @@ export const ArticleListItemDeprecated = memo((props: ArticleListItemProps) => {
                             to={getRouteArticleDetails(article.id)}
                         >
                             <Button theme={ButtonTheme.OUTLINE}>
-                                {t('Read more...')}
+                                {t('Read more')}
                             </Button>
                         </AppLink>
                         {views}
