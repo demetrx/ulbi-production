@@ -29,6 +29,8 @@
   "Log In": "Увійти",
   "Log Out": "Вийти",
   "Main page": "Головна сторінка",
+  "Main info": "Увійдіть, щоб переглянути статті.",
+  "Main credentials": "Тестові дані для входу: username: admin, password: 123.",
   "New": "Новий",
   "No comments yet": "Коментарів поки немає",
   "Old": "Старий",
@@ -60,6 +62,6 @@
   "views": "переглядами",
   "Lang": "English",
   "Main": "Головна",
-  "About us": "Про нас",
+  "About us": "Про проєкт",
   "Articles": "Статті"
 }

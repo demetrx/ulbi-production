@@ -60,6 +60,8 @@
   "views": "views",
   "Lang": "Українська",
   "Main": "Main",
-  "About us": "About",
-  "Articles": "Articles"
+  "About us": "About project",
+  "Articles": "Articles",
+  "Main info": "Log in to get access to the articles",
+  "Main credentials": "Test credentials: admin/123"
 }
