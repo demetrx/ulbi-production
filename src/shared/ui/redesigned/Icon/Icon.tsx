@@ -14,6 +14,7 @@ interface NonClickableIconProps extends IconBaseProps {
 }
 
 interface ClickableBaseProps extends IconBaseProps {
+    'data-testid'?: string;
     clickable: true;
     onClick: () => void;
 }
@@ -47,6 +48,7 @@ export const Icon = memo((props: IconProps) => {
                 className={cls.button}
                 onClick={props.onClick}
                 style={{ height, width }}
+                data-testid={props['data-testid']}
             >
                 {icon}
             </button>
