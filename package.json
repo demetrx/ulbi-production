@@ -1,7 +1,7 @@
 {
   "name": "demetrxx-blog-production",
   "version": "2.1.0",
-  "description": "Blog production project by Dmytro Bielousov",
+  "description": "Blog production project 'ITimes' by Dmytro Bielousov",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env port=3000",
