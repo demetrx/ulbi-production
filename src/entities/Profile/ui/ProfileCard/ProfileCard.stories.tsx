@@ -7,7 +7,7 @@ import { ProfileCard } from './ProfileCard';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
 export default {
-    title: 'entities/ProfileCard',
+    title: 'entities/Profile/ProfileCard',
     component: ProfileCard,
     argTypes: {
         backgroundColor: { control: 'color' },

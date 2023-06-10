@@ -16,4 +16,11 @@ const Template: ComponentStory<typeof NotificationItem> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    item: {
+        title: 'Title',
+        href: 'https://google.com',
+        description: 'Description',
+        id: '1',
+    },
+};
